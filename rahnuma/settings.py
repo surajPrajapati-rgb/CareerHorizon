@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'rahnuma.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'mydb',
+		'NAME': 'Rahnuma',
 		'USER': 'root',
 		'PASSWORD': 'mysql23',
 		'HOST':'localhost',
