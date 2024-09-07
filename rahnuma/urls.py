@@ -21,4 +21,5 @@ from stations import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('stations/', include('stations.urls')),
+    path('kxsearch/', include('kxsearch.urls')),
 ]
