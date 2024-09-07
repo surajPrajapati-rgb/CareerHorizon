@@ -1,0 +1,38 @@
+<!-- templates/stations/facility_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Station Facility List</title>
+</head>
+<body>
+    <h1>List of Station Facilities</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Facility Name</th>
+                <th>Facility Type</th>
+                <th>Floor Level</th>
+                <th>Coordinates</th>
+                <th>Operational Hours</th>
+                <th>Last Updated</th>
+                <th>Station ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for facility in facilities %}
+            <tr>
+                <td>{{ facility.id }}</td>
+                <td>{{ facility.facility_name }}</td>
+                <td>{{ facility.facility_type }}</td>
+                <td>{{ facility.floor_level }}</td>
+                <td>{{ facility.coordinates }}</td>
+                <td>{{ facility.operational_hours }}</td>
+                <td>{{ facility.last_updated }}</td>
+                <td>{{ facility.station_id }}</td> <!-- This will display the station ID -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
