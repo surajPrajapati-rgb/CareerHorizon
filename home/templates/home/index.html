@@ -1,0 +1,106 @@
+<!-- home/templates/home/index.html -->
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Navigator - Your Guide Through Railway Stations</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Link to static CSS file -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Station Navigator</h1>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#download">Download App</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Seamless Navigation Inside Railway Stations</h2>
+            <p>Locate platforms, facilities, and services with real-time directions and accessibility options. Enhance your journey with the power of Station Navigator!</p>
+            <a href="#download" class="btn">Get the App</a>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>Interactive 3D Maps</h3>
+                    <p>Explore detailed maps of stations with easy-to-follow visuals and real-time updates.</p>
+                </div>
+                <div class="feature">
+                    <h3>Real-Time Directions</h3>
+                    <p>Get step-by-step navigation to platforms, ticket counters, restrooms, food courts, and more.</p>
+                </div>
+                <div class="feature">
+                    <h3>Accessibility Options</h3>
+                    <p>Voice-guided navigation for visually impaired passengers and accessibility for all.</p>
+                </div>
+                <div class="feature">
+                    <h3>Multi-Platform Support</h3>
+                    <p>Available on mobile apps and digital kiosks at stations for a seamless experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Station Navigator, we’re committed to enhancing your journey through complex railway stations by providing efficient and user-friendly navigation tools. Whether you’re a frequent traveler or a first-time visitor, our system ensures that you can easily locate and access all the essential services inside a station.</p>
+        </div>
+    </section>
+
+    <section id="download">
+        <div class="container">
+            <h2>Download the App</h2>
+            <p>Experience seamless navigation right on your mobile. Available for Android and iOS.</p>
+            <div class="app-buttons">
+                <a href="#" class="btn app-btn">Download for Android</a>
+                <a href="#" class="btn app-btn">Download for iOS</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need support, feel free to reach out to us.</p>
+            <form action="submit_form.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Station Navigator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script> <!-- Link to static JS file -->
+</body>
+</html>

@@ -18,7 +18,6 @@ class Station(models.Model):
         return self.station_name
     
 
-
 class StationFacility(models.Model):
     FACILITY_TYPES = [
         ('service', 'Service'),
