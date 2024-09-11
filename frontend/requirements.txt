@@ -3,7 +3,8 @@
 "npm install @mui/icons-material",
 "npm install react react-dom",
 "npm install prop-types",
-"npm install @toolpad/core"
+"npm install @toolpad/core",
+"npm install react-router-dom"
 }
 
 

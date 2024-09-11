@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -31,12 +30,12 @@ function RailNavigation() {
           p: 2,
           borderBottom: '1px solid',
           borderColor: 'divider',
-          backgroundColor: 'background.paper', // You can adjust this based on your needs
+          backgroundColor: 'background.paper',
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <IconButton>
-            <HomeIcon />
+            <HomeIcon sx={{ fontSize: 45, mr: 3}}/>
           </IconButton>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
@@ -50,7 +49,7 @@ function RailNavigation() {
       </Box>
 
       {/* Main Content */}
-      <Box sx={{ display: 'flex', flex: 1 }}>
+      <Box sx={{ display: 'flex', flex: 1}}>
         {/* Left Part: Search Boxes */}
         <Box
           sx={{
@@ -59,7 +58,7 @@ function RailNavigation() {
             flexDirection: 'column',
             p: 2,
             borderRight: '1px solid',
-            borderColor: 'divider',
+            borderColor: 'divider'
           }}
         >
           <Paper component="form" sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -100,9 +99,5 @@ function RailNavigation() {
     </Box>
   );
 }
-
-RailNavigation.propTypes = {
-  window: PropTypes.func,
-};
 
 export default RailNavigation;
