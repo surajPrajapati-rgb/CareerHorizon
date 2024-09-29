@@ -46,11 +46,16 @@ const App = () => {
         <Header />
         <ExploreSection />
         <section className="course-list">
+          <div className="course-intro">
+              <h2>Guided Learning with Industry Trends</h2>
+              <p>Stay ahead in your career with our courses, designed around the latest industry trends in technology, design, and marketing. Learn what matters now and build the skills to thrive.</p>
+          </div>
+
           {courses.map((course, index) => (
             <CourseCard key={index} course={course} />
+            
           ))}
         </section>
-        <ExploreSection />
         <TestimonialsSection/>
         </div>
     </>

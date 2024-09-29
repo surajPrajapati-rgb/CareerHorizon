@@ -4,6 +4,7 @@ import './CourseCard.css'; // Add styles for each card
 
 const CourseCard = ({ course }) => {
   return (
+    <div className="course-list">
     <div className="course-card">
       <img src={course.image} alt={course.title} />
       <div className="course-details">
@@ -20,6 +21,7 @@ const CourseCard = ({ course }) => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };
