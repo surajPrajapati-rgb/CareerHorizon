@@ -5,6 +5,7 @@ import Header from './components/Header';
 import CourseCard from './components/CourseCard';
 import './App.css';
 import ExploreSection from './components/ExploreSection';
+import LandingPageNavbar from './components/LandingPageNavbar';
 
 const App = () => {
   const courses = [
@@ -39,18 +40,16 @@ const App = () => {
 
   return (
     <>
-    <div className="app-container">
-      <Sidebar />
-      <main>
+      <div className="app-container">
+        <LandingPageNavbar />
         <Header />
+        <ExploreSection />
         <section className="course-list">
           {courses.map((course, index) => (
             <CourseCard key={index} course={course} />
           ))}
         </section>
-        <ExploreSection />
-      </main>
-    </div>
+      </div>
     </>
   );
 };
