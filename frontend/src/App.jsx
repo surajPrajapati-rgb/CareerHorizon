@@ -38,6 +38,7 @@ const App = () => {
   ];
 
   return (
+    <>
     <div className="app-container">
       <Sidebar />
       <main>
@@ -47,9 +48,10 @@ const App = () => {
             <CourseCard key={index} course={course} />
           ))}
         </section>
+        <ExploreSection />
       </main>
-      <ExploreSection/>
     </div>
+    </>
   );
 };
 
