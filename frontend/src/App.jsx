@@ -6,6 +6,7 @@ import CourseCard from './components/CourseCard';
 import './App.css';
 import ExploreSection from './components/ExploreSection';
 import LandingPageNavbar from './components/LandingPageNavbar';
+import TestimonialsSection from './components/TestimonialsSection';
 
 const App = () => {
   const courses = [
@@ -49,7 +50,9 @@ const App = () => {
             <CourseCard key={index} course={course} />
           ))}
         </section>
-      </div>
+        <ExploreSection />
+        <TestimonialsSection/>
+        </div>
     </>
   );
 };
