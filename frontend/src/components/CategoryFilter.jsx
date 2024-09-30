@@ -1,6 +1,6 @@
 // src/components/CategoryFilter.jsx
 import React from 'react';
-import './CategoryFilter.css'; // Add custom styles for buttons
+import '/src/styles/CategoryFilter.css'; // Add custom styles for buttons
 
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
   return (

@@ -1,6 +1,6 @@
 // src/components/CourseCard.jsx
 import React from 'react';
-import './CourseCard.css'; // Add styles for each card
+import '/src/styles/CourseCard.css'; // Add styles for each card
 
 const CourseCard = ({ course }) => {
   return (

@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React from 'react';
-import './Header.css'; // Custom styles for the header section
+import '/src/styles/Header.css'; // Custom styles for the header section
 
 const Header = () => {
   return (

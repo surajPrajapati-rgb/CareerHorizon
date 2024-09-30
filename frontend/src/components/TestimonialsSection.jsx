@@ -1,7 +1,7 @@
 // src/components/TestimonialsSection.jsx
 import React from 'react';
 import TestimonialCard from './TestimonialCard';
-import './TestimonialsSection.css'; // Add custom styles for section
+import '/src/styles/TestimonialsSection.css'; // Add custom styles for section
 
 const testimonialsData = [
   {

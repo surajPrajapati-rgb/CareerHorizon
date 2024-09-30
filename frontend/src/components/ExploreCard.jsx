@@ -1,6 +1,6 @@
 // src/components/ExploreCard.jsx
 import React from 'react';
-import './ExploreCard.css'; // Custom styles for cards
+import '/src/styles/ExploreCard.css'; // Custom styles for cards
 
 const ExploreCard = ({ field }) => {
   return (

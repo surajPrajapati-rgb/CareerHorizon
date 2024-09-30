@@ -1,6 +1,6 @@
 // src/components/TestimonialCard.jsx
 import React from 'react';
-import './TestimonialCard.css'; // Add custom styles
+import '/src/styles/TestimonialCard.css'; // Add custom styles
 
 const TestimonialCard = ({ testimonial }) => {
   return (

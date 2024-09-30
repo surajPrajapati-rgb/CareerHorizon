@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import CategoryFilter from './CategoryFilter';
 import ExploreCard from './ExploreCard';
-import './ExploreSection.css'; // Custom styles for the layout
+import '/src/styles/ExploreSection.css'; // Custom styles for the layout
 
 const ExploreSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
