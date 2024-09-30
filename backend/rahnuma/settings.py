@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'accounts',
-    'stations',
-    'kxsearch',
     'rest_framework',
     'corsheaders',
 ]

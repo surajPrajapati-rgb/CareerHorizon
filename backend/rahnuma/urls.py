@@ -16,11 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from stations import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('stations/', include('stations.urls')),
-    path('kxsearch/', include('kxsearch.urls')),
 ]
