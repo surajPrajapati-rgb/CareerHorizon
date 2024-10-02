@@ -97,15 +97,13 @@ WSGI_APPLICATION = 'Navigator.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'Rahnuma',
+		'NAME': 'CareerNavigator',
 		'USER': 'root',
 		'PASSWORD': 'mysql23',
 		'HOST':'localhost',
 		'PORT':'3306',
 	}
 }
-
-
 
 
 # Password validation
