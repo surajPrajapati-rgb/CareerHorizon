@@ -1,65 +1,36 @@
-// src/App.jsx
-import React from 'react';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import CourseCard from './components/CourseCard';
-import './App.css';
-import ExploreSection from './components/ExploreSection';
-import LandingPageNavbar from './components/LandingPageNavbar';
-import TestimonialsSection from './components/TestimonialsSection';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import WelcomePage from './components/WelcomePage';
+import HomePage from './components/HomePage';
 
-const App = () => {
-  const courses = [
-    {
-      title: "Mastering Interaction Design",
-      description: "Learn the core principles of interaction design and practical techniques.",
-      author: "Luis Mark",
-      image: "/src/assets/course1.png",
-      discountedPrice: 0.00,
-      originalPrice: 69.99,
-      tags: ["FREE", "EVENTS", "BEGINNER"]
-    },
-    {
-      title: "Apple HIG Mastery: UI Design",
-      description: "Design seamless user interfaces aligned with Human Interface Guidelines.",
-      author: "Luis Mark",
-      image: "/src/assets/course2.png",
-      discountedPrice: 66.66,
-      originalPrice: 369.99,
-      tags: ["BEGINNER", "EVENTS"]
-    },
-    {
-      title: "Creating Impactful Icons: Design Techniques",
-      description: "Master icon design from concept development to polished visuals.",
-      author: "Luis Mark",
-      image: "/src/assets/course3.png",
-      discountedPrice: 10.00,
-      originalPrice: 100.00,
-      tags: ["BEGINNER", "EVENTS"]
-    }
-  ];
+function App() {
+  const [students, setStudents] = useState([]);  // Initialize students as an empty array
+
+  useEffect(() => {
+    // Fetch the student data from the Django backend
+    axios.get('http://localhost:8000/api/students/')
+      .then(response => setStudents(response.data))  // Set the response data to the state
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   return (
-    <>
-      <div className="app-container">
-        <LandingPageNavbar />
-        <Header />
-        <ExploreSection />
-        <section className="course-list">
-          <div className="course-intro">
-              <h2>Guided Learning with Industry Trends</h2>
-              <p>Stay ahead in your career with our courses, designed around the latest industry trends in technology, design, and marketing. Learn what matters now and build the skills to thrive.</p>
-          </div>
-
-          {courses.map((course, index) => (
-            <CourseCard key={index} course={course} />
-            
+    <div>
+      <WelcomePage />
+      {/* <HomePage /> */}
+      {/* <h1>Students List</h1>
+      {students.length > 0 ? (
+        <ul>
+          {students.map((student) => (
+            <li key={student.student_id}>
+              {student.student_name} (Student ID: {student.stu_id})
+            </li>
           ))}
-        </section>
-        <TestimonialsSection/>
-        </div>
-    </>
+        </ul>
+      ) : (
+        <p>Loading students...</p>
+      )} */}
+    </div>
   );
-};
+}
 
 export default App;
