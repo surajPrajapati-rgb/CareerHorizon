@@ -1,0 +1,56 @@
+/* WelcomePage.css */
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #007bff, #00aaff);
+    color: white;
+  }
+  
+  /* Key Features Section */
+  .features-section .feature-card {
+    background-color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .features-section .feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Testimonials Section */
+.testimonials-section .testimonial-card {
+    background-color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .testimonials-section .testimonial-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /* Courses Section */
+  .courses-section .course-card {
+    background-color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .courses-section .course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Footer Section */
+  .footer a {
+    color: #ddd;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    color: #fff;
+  }
+  

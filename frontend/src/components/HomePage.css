@@ -1,0 +1,36 @@
+.home-page {
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.profile-overview {
+    background: linear-gradient(to right, #007bff, #00aaff);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.course-card, .mentor-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover, .mentor-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.list-group-item {
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
