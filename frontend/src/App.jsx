@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import WelcomePage from './components/WelcomePage';
-import HomePage from './components/HomePage';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
+import ProfileDetail from './components/ProfileDetail';
 
 function App() {
   const [students, setStudents] = useState([]);  // Initialize students as an empty array
+
 
   useEffect(() => {
     // Fetch the student data from the Django backend
@@ -14,22 +18,16 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <WelcomePage />
-      {/* <HomePage /> */}
-      {/* <h1>Students List</h1>
-      {students.length > 0 ? (
-        <ul>
-          {students.map((student) => (
-            <li key={student.student_id}>
-              {student.student_name} (Student ID: {student.stu_id})
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Loading students...</p>
-      )} */}
-    </div>
+    
+        <Router>
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/profile/:user_id" element={<ProfileDetail />} />
+        </Routes>
+      </Router>
+      
   );
 }
 
