@@ -1,5 +1,4 @@
-// src/components/LoginPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginSignup.css';
 
@@ -9,22 +8,30 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Check if the user is already logged in
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      // Redirect the user to the home page if already logged in
+      navigate('/home');
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     try {
-      // Make the API call to login
       const response = await fetch('http://localhost:8000/accounts/api/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
+
       if (response.ok) {
         const data = await response.json();
-        // Store JWT token or user data in localStorage (or use context)
         localStorage.setItem('token', data.token);
-        navigate('/profile');
+        navigate('/home'); // Redirect to home page after login
       } else {
         setError('Invalid credentials');
       }

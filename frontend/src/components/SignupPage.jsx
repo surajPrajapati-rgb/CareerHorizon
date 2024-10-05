@@ -32,7 +32,7 @@ const SignupPage = () => {
           }
       
           // Redirect to profile page
-          navigate('/profile');  // Assuming '/profile' is the route for the user profile
+          navigate('/home');  // Assuming '/profile' is the route for the user profile
         } else {
           setError('Signup failed. Try again.');
         }

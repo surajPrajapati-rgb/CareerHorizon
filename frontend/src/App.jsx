@@ -5,29 +5,29 @@ import WelcomePage from './components/WelcomePage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import ProfileDetail from './components/ProfileDetail';
+import HomePage from './components/HomePage';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  const [students, setStudents] = useState([]);  // Initialize students as an empty array
-
-
-  useEffect(() => {
-    // Fetch the student data from the Django backend
-    axios.get('http://localhost:8000/api/students/')
-      .then(response => setStudents(response.data))  // Set the response data to the state
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
 
   return (
-    
         <Router>
         <Routes>
           <Route path="/" element={<WelcomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          {/* <Route path='/home' element = {<HomePage/>}/> */}
+          <Route path="/home"
+            element={
+            <ProtectedRoute>
+              <HomePage /> {/* Only accessible if logged in */}
+            </ProtectedRoute>
+          }
+        />
+          {/* <Route path="/home" element={<HomePage />} /> */}
           <Route path="/profile/:user_id" element={<ProfileDetail />} />
         </Routes>
       </Router>
-      
   );
 }
 
