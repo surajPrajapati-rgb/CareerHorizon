@@ -59,16 +59,24 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'Navigator.urls'
 
-# Django REST Framework configuration
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT Authentication
-        'rest_framework.authentication.SessionAuthentication',  # For session authentication
-    ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # Global permission policy
+        'rest_framework.permissions.AllowAny',  # Temporarily allow all requests
     ],
 }
+
+
+# # Django REST Framework configuration
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT Authentication
+#         'rest_framework.authentication.SessionAuthentication',  # For session authentication
+#     ],
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',  # Global permission policy
+#     ],
+# }
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Adjust this for the frontend URL (e.g., React app)
