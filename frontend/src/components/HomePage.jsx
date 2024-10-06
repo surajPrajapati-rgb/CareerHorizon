@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css'; // Import custom styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,8 +12,10 @@ const HomePage = () => {
           <h2>Welcome, [User Name]</h2>
           <img src="[Profile Picture URL]" alt="Profile" className="profile-pic" />
           <p>[Short Bio]</p>
+          <Link to="/logout">Logout</Link>
           <div className="quick-links">
             <button className="btn btn-primary">Edit Profile</button>
+            
             <button className="btn btn-secondary">Preferences</button>
             <button className="btn btn-outline-secondary">Settings</button>
           </div>
