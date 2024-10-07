@@ -9,6 +9,7 @@ import Logout from './components/Logout';
 import NavBar from './components/NavBar';
 import MentorPage from './components/MentorPage';
 import CoursesPage from './components/CoursePage';
+import MentorProfile from './components/MentorProfile';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/profile/:user_id" element={<ProfilePage />} />
-        <Route path="/mentor" element={<MentorPage />} />
+        <Route path="/mentors" element={<MentorPage />} />
+        <Route path="/mentors/:mentorId" element={<MentorProfile />} />
         <Route path="/courses" element={<CoursesPage />} />
       </Routes>
     </Router>

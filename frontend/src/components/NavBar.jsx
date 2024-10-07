@@ -9,7 +9,7 @@ function NavBar() {
         <Link to="/home">My App</Link>
       </div>
       <div className="navbar-links">
-        <Link to="/mentor">Mentor</Link>
+        <Link to="/mentors">Mentor</Link>
         <Link to="/courses">Courses</Link>
       </div>
       <div className="navbar-profile">
