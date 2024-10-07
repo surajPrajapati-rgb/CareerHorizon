@@ -54,3 +54,15 @@
     color: #fff;
   }
   
+  /* General Card Styling for Consistency */
+.mentor-card, .course-card {
+  background-color: white;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.mentor-card:hover, .course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
