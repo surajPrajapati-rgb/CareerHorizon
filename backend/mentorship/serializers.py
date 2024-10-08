@@ -39,9 +39,4 @@ class MentorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Mentor
-        fields = [
-            'mentor_id', 'name', 'profile_photo', 'graduation_year', 'field_of_study', 'degree', 
-            'academic_stream', 'bio', 'preferred_mentee_year', 'mentoring_frequency', 'session_duration', 
-            'contact_mode', 'created_at', 'updated_at', 'availability_slots', 'expertise_areas', 
-            'experiences', 'education', 'sessions'
-        ]
+        fields = '__all__'
