@@ -104,17 +104,35 @@ WSGI_APPLICATION = 'Navigator.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.mysql',
+# 		'NAME': 'CareerNavigator',
+# 		'USER': 'root',
+# 		'PASSWORD': 'mysql23',
+# 		'HOST':'localhost',
+# 		'PORT':'3306',
+# 	}
+# }
+
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'CareerNavigator',
-		'USER': 'root',
-		'PASSWORD': 'mysql23',
-		'HOST':'localhost',
-		'PORT':'3306',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Creates 'db.sqlite3' in the project root
+    }
 }
 
+
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.mysql',
+# 		'NAME': 'CareerNavigator',
+# 		'USER': 'navigator-admin',
+# 		'PASSWORD': 'TestDB@56789',
+# 		'HOST':'152.58.129.114',
+# 		'PORT':'3306',
+# 	}
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
