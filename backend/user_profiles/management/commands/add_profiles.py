@@ -4,12 +4,20 @@ from faker import Faker
 import random
 
 class Command(BaseCommand):
-    help = 'Add 1000 profiles with related data'
+    help = 'Add 1000 profiles with computer science, management, system design, or marketing related data'
 
     def handle(self, *args, **kwargs):
         fake = Faker()
 
-        for _ in range(1000):
+        # Define field-specific job titles and degrees
+        cs_job_titles = ["Software Engineer", "Data Scientist", "Machine Learning Engineer", "Web Developer"]
+        management_job_titles = ["Project Manager", "Operations Manager", "Business Analyst", "Product Manager"]
+        design_job_titles = ["System Designer", "UI/UX Designer", "Product Designer", "Technical Architect"]
+        marketing_job_titles = ["Digital Marketer", "Content Strategist", "SEO Specialist", "Brand Manager"]
+
+        degrees = ["Computer Science", "Business Management", "System Design", "Marketing"]
+
+        for _ in range(100):
             profile = Profile.objects.create(
                 name=fake.name(),
                 email=fake.unique.email(),
@@ -37,19 +45,27 @@ class Command(BaseCommand):
             )
 
             if profile.user_type == 'professional':
+                # Assign job titles based on fields of interest
+                job_title = random.choice(cs_job_titles + management_job_titles + design_job_titles + marketing_job_titles)
+                company_name = fake.company()
+
                 ProfessionalDetails.objects.create(
                     profile=profile,
-                    company_name=fake.company(),
-                    job_title=fake.job(),
+                    company_name=company_name,
+                    job_title=job_title,
                     years_of_experience=random.randint(0, 30)
                 )
             else:
+                # Choose degree and field of study related to specified domains
+                degree = random.choice(degrees)
+                field_of_study = degree  # You could make this more specific if needed
+
                 StudentDetails.objects.create(
                     profile=profile,
                     university_name=fake.company(),
-                    degree=fake.word(),
-                    field_of_study=fake.word(),
+                    degree=degree,
+                    field_of_study=field_of_study,
                     graduation_year=random.randint(2020, 2025)
                 )
 
-        self.stdout.write(self.style.SUCCESS('1000 profiles added successfully.'))
+        self.stdout.write(self.style.SUCCESS('1000 profiles related to computer science, management, system design, or marketing added successfully.'))
