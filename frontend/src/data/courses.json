@@ -1,0 +1,178 @@
+[
+    {
+      "title": "Mastering Interaction Design",
+      "instructor": "Devon Lane",
+      "level": "Expert",
+      "price": "$59.00",
+      "originalPrice": "$69.00",
+      "duration": "4h",
+      "description": "Dive into the core principles of interaction design and learn practical techniques.",
+      "tags": ["Free", "Expert"],
+      "image": "/src/images/course2.png"
+    },
+    {
+      "title": "Apple HIG Mastery: Creating Seamless User Interfaces",
+      "instructor": "Jerome Bell",
+      "level": "Beginner",
+      "price": "$56.66",
+      "originalPrice": "$89.00",
+      "duration": "4h",
+      "description": "Learn how to design user interfaces that align with Apple's Human Interface Guidelines.",
+      "tags": ["Beginner", "Event"],
+      "image": "/src/images/course1.png"
+    },
+    {
+      "title": "Introduction to Machine Learning with Python",
+      "instructor": "Cameron Williamson",
+      "level": "Beginner",
+      "price": "$49.00",
+      "originalPrice": "$79.00",
+      "duration": "5h",
+      "description": "Get started with the basics of machine learning, including supervised and unsupervised learning.",
+      "tags": ["Machine Learning", "Beginner"],
+      "image": "/src/images/course_ml.png"
+    },
+    {
+      "title": "Deep Learning with TensorFlow",
+      "instructor": "Leslie Alexander",
+      "level": "Intermediate",
+      "price": "$65.00",
+      "originalPrice": "$99.00",
+      "duration": "6h",
+      "description": "Master deep learning techniques using TensorFlow, from CNNs to RNNs.",
+      "tags": ["AI", "Intermediate"],
+      "image": "/src/images/course_dl.png"
+    },
+    {
+      "title": "Natural Language Processing with Python",
+      "instructor": "Kristin Watson",
+      "level": "Expert",
+      "price": "$72.00",
+      "originalPrice": "$110.00",
+      "duration": "7h",
+      "description": "Delve into NLP concepts like tokenization, sentiment analysis, and language generation.",
+      "tags": ["NLP", "Expert"],
+      "image": "/src/images/course_nlp.png"
+    },
+    {
+      "title": "Data Science and Visualization",
+      "instructor": "Devon Lane",
+      "level": "Beginner",
+      "price": "$45.00",
+      "originalPrice": "$75.00",
+      "duration": "4h",
+      "description": "Learn data science techniques and visualization tools like Matplotlib and Seaborn.",
+      "tags": ["Data Science", "Beginner"],
+      "image": "/src/images/course_ds.png"
+    },
+    {
+      "title": "AI for Image Processing",
+      "instructor": "Eleanor Pena",
+      "level": "Intermediate",
+      "price": "$68.00",
+      "originalPrice": "$99.00",
+      "duration": "5h",
+      "description": "Explore AI techniques for image processing, including convolutional neural networks.",
+      "tags": ["Image Processing", "Intermediate"],
+      "image": "/src/images/course_image_processing.png"
+    },
+    {
+      "title": "Backend Development with Spring Boot",
+      "instructor": "Arlene McCoy",
+      "level": "Beginner",
+      "price": "$52.00",
+      "originalPrice": "$70.00",
+      "duration": "6h",
+      "description": "Build RESTful APIs and microservices with Spring Boot and Java.",
+      "tags": ["Backend", "Beginner"],
+      "image": "/src/images/course_springboot.png"
+    },
+    {
+      "title": "Advanced Java Programming",
+      "instructor": "Marvin McKinney",
+      "level": "Expert",
+      "price": "$75.00",
+      "originalPrice": "$115.00",
+      "duration": "8h",
+      "description": "Take your Java skills to the next level with advanced concepts and best practices.",
+      "tags": ["Java", "Expert"],
+      "image": "/src/images/course_java.png"
+    },
+    {
+      "title": "Django for Web Development",
+      "instructor": "Courtney Henry",
+      "level": "Intermediate",
+      "price": "$60.00",
+      "originalPrice": "$95.00",
+      "duration": "6h",
+      "description": "Create powerful web applications with Django and Python.",
+      "tags": ["Python", "Intermediate"],
+      "image": "/src/images/course_django.png"
+    },
+    {
+      "title": "Game Development with Unity",
+      "instructor": "Darlene Robertson",
+      "level": "Beginner",
+      "price": "$49.00",
+      "originalPrice": "$79.00",
+      "duration": "5h",
+      "description": "Learn game development fundamentals with Unity and C#.",
+      "tags": ["Game Development", "Beginner"],
+      "image": "/src/images/course_unity.png"
+    },
+    {
+      "title": "Reinforcement Learning Fundamentals",
+      "instructor": "Guy Hawkins",
+      "level": "Expert",
+      "price": "$85.00",
+      "originalPrice": "$130.00",
+      "duration": "7h",
+      "description": "Master reinforcement learning algorithms, including Q-learning and DQN.",
+      "tags": ["Machine Learning", "Expert"],
+      "image": "/src/images/course_rl.png"
+    },
+    {
+      "title": "Introduction to Data Engineering",
+      "instructor": "Ralph Edwards",
+      "level": "Beginner",
+      "price": "$55.00",
+      "originalPrice": "$85.00",
+      "duration": "5h",
+      "description": "Learn the fundamentals of data engineering, from ETL to data pipelines.",
+      "tags": ["Data Engineering", "Beginner"],
+      "image": "/src/images/course_de.png"
+    },
+    {
+      "title": "Advanced NLP with Transformers",
+      "instructor": "Sara Lee",
+      "level": "Expert",
+      "price": "$90.00",
+      "originalPrice": "$120.00",
+      "duration": "8h",
+      "description": "Explore advanced NLP models, including BERT and GPT-3.",
+      "tags": ["NLP", "Expert"],
+      "image": "/src/images/course_transformers.png"
+    },
+    {
+      "title": "Machine Learning for Healthcare",
+      "instructor": "Leslie Alexander",
+      "level": "Intermediate",
+      "price": "$65.00",
+      "originalPrice": "$99.00",
+      "duration": "6h",
+      "description": "Learn how machine learning is applied in the healthcare industry.",
+      "tags": ["Healthcare", "Intermediate"],
+      "image": "/src/images/course_ml_healthcare.png"
+    },
+    {
+      "title": "Building Scalable Backend Systems",
+      "instructor": "Wade Warren",
+      "level": "Expert",
+      "price": "$78.00",
+      "originalPrice": "$105.00",
+      "duration": "7h",
+      "description": "Architect scalable backend systems for high-performance applications.",
+      "tags": ["Backend", "Expert"],
+      "image": "/src/images/course_backend.png"
+    }
+]

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
 import LoginPage from './components/LoginPage';
@@ -8,8 +8,10 @@ import ProfilePage from './components/ProfilePage';
 import Logout from './components/Logout';
 import NavBar from './components/NavBar';
 import MentorPage from './components/MentorPage';
-import CoursesPage from './components/CoursePage';
+// import CoursesPage from './components/CoursePage';
 import MentorProfile from './components/MentorProfile';
+import CourseList from './components/CourseList';
+import coursesData from './data/courses.json'; 
 
 function App() {
   return (
@@ -24,7 +26,8 @@ function App() {
         <Route path="/profile/:user_id" element={<ProfilePage />} />
         <Route path="/mentors" element={<MentorPage />} />
         <Route path="/mentors/:mentorId" element={<MentorProfile />} />
-        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/courses" element={<CourseList courses={coursesData} />} />
+        {/* <Route path="/courses" element={<CoursesPage />} /> */}
       </Routes>
     </Router>
   );
