@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/home">My App</Link>
+        <Link to="/home">TechPoint</Link>
       </div>
       <div className="navbar-links">
         <Link to="/mentors">Mentor</Link>
