@@ -1,6 +1,7 @@
 // src/components/CourseCard.jsx
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Card = styled.div`
   border: 1px solid #ddd;
@@ -94,9 +95,15 @@ const Tags = styled.div`
   }
 `;
 
-const CourseCard = ({ title, instructor, level, duration, price, originalPrice, description, tags, image }) => {
+const CourseCard = ({ id,title, instructor, level, duration, price, originalPrice, description, tags, image }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    // Navigate to course detail page with the course ID
+    navigate(`/course/${id}`);
+  };
   return (
-    <Card>
+    <Card onClick={handleCardClick}>
       <ImageWrapper>
         <img src={image} alt={title} />
       </ImageWrapper>

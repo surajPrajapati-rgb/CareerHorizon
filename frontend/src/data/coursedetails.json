@@ -433,6 +433,36 @@
           "topics": ["Using Unity for AR", "Deploying AR Applications"]
         }
       ]
+    },
+    {
+      "id": 16,
+      "title": "Introduction to Augmented Reality",
+      "instructor": "Kathryn Murphy",
+      "level": "Beginner",
+      "price": "$50.00",
+      "originalPrice": "$80.00",
+      "duration": "4h",
+      "description": "Learn the basics of augmented reality and how to create AR experiences using Unity.",
+      "tags": ["AR", "Beginner"],
+      "image": "/src/images/course_ar.png",
+      "rating": 4.3,
+      "studentsEnrolled": 1300,
+      "lastUpdated": "March 2025",
+      "prerequisites": ["Basic Unity knowledge"],
+      "learningOutcomes": ["Understand AR principles", "Create AR apps using Unity"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Augmented Reality",
+          "topics": ["What is Augmented Reality?", "AR vs VR"]
+        },
+        {
+          "week": 2,
+          "title": "Building AR Applications",
+          "topics": ["Using Unity for AR", "Deploying AR Applications"]
+        }
+      ]
     }
+    
   ]
   
