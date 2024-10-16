@@ -103,7 +103,6 @@ const CourseCard = ({ title, instructor, level, duration, price, originalPrice, 
       <Content>
         <Title>{title}</Title>
         <Instructor>By {instructor}</Instructor>
-        {/* <Description>{description}</Description> */}
         <Duration>
           Duration: {duration} &nbsp;&nbsp;|&nbsp;&nbsp; Level: {level}
         </Duration>
