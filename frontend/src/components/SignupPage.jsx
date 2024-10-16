@@ -28,7 +28,8 @@ const SignupPage = () => {
       
           // If token-based authentication is used, store the token
           if (data.token) {
-            localStorage.setItem('authToken', data.token);  // Save token in localStorage or use a global state management
+            localStorage.setItem('token', data.token);  // Save token in localStorage or use a global state management
+            localStorage.setItem('userEmail', email);
           }
       
           // Redirect to profile page

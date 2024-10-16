@@ -47,11 +47,16 @@ def all_profile_details(request, user_id):
 def get_profile_by_email(request):
     email = request.data.get('email')
     try:
-        user = User.objects.get(email=email)
-        profile = Profile.objects.get(user=user.email) #check thiis line
-        serializer = ProfileSerializer(profile)
-        return Response(serializer.data)
-    except User.DoesNotExist:
-        return Response({'error': 'User not found'}, status=404)
+        # Get the user_id directly from the profile by email
+        user_id = Profile.objects.filter(email=email).values_list('user_id', flat=True).get()
+        print("user_id",user_id)
+
+        profile = Profile.objects.select_related(
+            'social_links', 'professional_details', 'student_details'
+        ).get(user_id=user_id)
     except Profile.DoesNotExist:
-        return Response({'error': 'Profile not found'}, status=404)
+        return Response(status=404)
+    
+    serializer = AllProfileDetailsSerializer(profile)
+    return Response(serializer.data)
+        

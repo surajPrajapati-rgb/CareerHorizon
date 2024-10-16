@@ -12,6 +12,7 @@ import MentorProfile from './components/MentorProfile';
 import CourseList from './components/CourseList';
 import ProtectedRoute from './components/ProtectedRoute'; // Import your ProtectedRoute component
 import coursesData from './data/courses.json';
+import CareerExplorer from './components/CareerExplorer';
 
 function App() {
   return (
@@ -31,9 +32,11 @@ function App() {
               <NavBar />
               <Routes>
                 <Route path="home" element={<HomePage />} />
-                <Route path="profile/:user_id" element={<ProfilePage />} />
+                {/* <Route path="profile/:user_id" element={<ProfilePage />} /> */}
+                <Route path="profile/" element={<ProfilePage />} />
                 <Route path="mentors" element={<MentorPage />} />
                 <Route path="mentors/:mentorId" element={<MentorProfile />} />
+                <Route path="explore/" element={<CareerExplorer />} />
                 <Route path="courses" element={<CourseList courses={coursesData} />} />
               </Routes>
             </ProtectedRoute>

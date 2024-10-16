@@ -1,0 +1,77 @@
+/* Hero Section */
+.heroSection {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.heroSection h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.heroSection p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.heroSection button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #1a1a2e;
+    background-color: #76c7c0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.heroSection button:hover {
+    background-color: #4bb7b1;
+}
+
+/* Career Paths Section */
+.careerPathsSection {
+    padding: 60px 20px;
+    background-color: #f3f4f6;
+    text-align: center;
+}
+
+.careerPathsSection h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.careerCard {
+    background-color: #ffffff;
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.careerCard h3 {
+    font-size: 1.2em;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.careerCard p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.careerCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
