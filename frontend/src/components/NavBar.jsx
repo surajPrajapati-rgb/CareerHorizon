@@ -10,6 +10,7 @@ function NavBar() {
       </div>
       <div className="navbar-links">
         <Link to="/home">Home</Link>
+        <Link to="/explore">Explore Career</Link>
         <Link to="/mentors">Mentor</Link>
         <Link to="/courses">Courses</Link>
         <Link to="/about">About</Link>
@@ -17,8 +18,8 @@ function NavBar() {
 
       </div>
       <div className="navbar-profile">
-        <Link to="/profile/1">
-          <img src="/profile-icon.png" alt="Profile" className="profile-icon" />
+        <Link to="/profile/">
+          <img src="/public/image.png" alt="Profile" className="profile-icon" />
         </Link>
       </div>
     </nav>

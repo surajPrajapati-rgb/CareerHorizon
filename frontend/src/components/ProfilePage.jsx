@@ -4,23 +4,51 @@ import { useParams } from 'react-router-dom';
 import './ProfilePage.css';  // Import the CSS file
 
 const ProfilePage = () => {
-  const { user_id } = useParams();
+  // const { user_id } = useParams();
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const userEmail = localStorage.getItem('userEmail');
+  console.log("User Email:", userEmail);
+  
+
   useEffect(() => {
     const fetchProfile = async () => {
+      if (!userEmail) {
+        console.error("No email found for the logged-in user.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/profiles/${user_id}/`);
+        const response = await axios.post('http://127.0.0.1:8000/api/profiles/get_profile_by_email/', {
+          email: userEmail,
+        });
         setProfile(response.data);
+        console.log("Profile Data:", response.data);
       } catch (error) {
         console.error('Error fetching profile data', error);
       } finally {
         setLoading(false);
       }
     };
+
     fetchProfile();
-  }, [user_id]);
+  }, [userEmail]);
+
+  // useEffect(() => {
+  //   const fetchProfile = async () => {
+  //     try {
+  //       const response = await axios.get(`http://127.0.0.1:8000/api/profiles/${user_id}/`);
+  //       setProfile(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching profile data', error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchProfile();
+  // }, [user_id]);
 
   if (loading) return <div className="loading-spinner">Loading...</div>;
 

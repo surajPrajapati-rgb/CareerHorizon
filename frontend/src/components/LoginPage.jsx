@@ -31,6 +31,7 @@ const LoginPage = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.token);
+        localStorage.setItem('userEmail', email);
         navigate('/home'); // Redirect to home page after login
       } else {
         setError('Invalid credentials');
