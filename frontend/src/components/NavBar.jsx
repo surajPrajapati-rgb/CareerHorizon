@@ -9,8 +9,12 @@ function NavBar() {
         <Link to="/home">My App</Link>
       </div>
       <div className="navbar-links">
+        <Link to="/home">Home</Link>
         <Link to="/mentors">Mentor</Link>
         <Link to="/courses">Courses</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+
       </div>
       <div className="navbar-profile">
         <Link to="/profile/1">
