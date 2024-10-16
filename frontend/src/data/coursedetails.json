@@ -1,0 +1,438 @@
+[
+    {
+      "id": 1,
+      "title": "Mastering Interaction Design",
+      "instructor": "Devon Lane",
+      "level": "Expert",
+      "price": "$59.00",
+      "originalPrice": "$69.00",
+      "duration": "4h",
+      "description": "Dive into the core principles of interaction design and learn practical techniques.",
+      "tags": ["Free", "Expert"],
+      "image": "/src/images/course2.png",
+      "rating": 4.5,
+      "studentsEnrolled": 1200,
+      "lastUpdated": "January 2024",
+      "prerequisites": ["Basic design knowledge", "Understanding of UI/UX"],
+      "learningOutcomes": ["Understand core interaction design principles", "Apply practical design techniques"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Interaction Design",
+          "topics": ["What is Interaction Design?", "Principles of Interaction"]
+        },
+        {
+          "week": 2,
+          "title": "Practical Techniques",
+          "topics": ["Designing for Users", "Interactive Prototyping"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Apple HIG Mastery: Creating Seamless User Interfaces",
+      "instructor": "Jerome Bell",
+      "level": "Beginner",
+      "price": "$56.66",
+      "originalPrice": "$89.00",
+      "duration": "4h",
+      "description": "Learn how to design user interfaces that align with Apple's Human Interface Guidelines.",
+      "tags": ["Beginner", "Event"],
+      "image": "/src/images/course1.png",
+      "rating": 4.3,
+      "studentsEnrolled": 1500,
+      "lastUpdated": "February 2024",
+      "prerequisites": ["None"],
+      "learningOutcomes": ["Understand Apple’s Human Interface Guidelines", "Create seamless user interfaces"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Getting Started with Apple HIG",
+          "topics": ["Introduction to Apple HIG", "Designing for iOS"]
+        },
+        {
+          "week": 2,
+          "title": "Advanced HIG Concepts",
+          "topics": ["UI Components", "Consistency in Design"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Introduction to Machine Learning with Python",
+      "instructor": "Cameron Williamson",
+      "level": "Beginner",
+      "price": "$49.00",
+      "originalPrice": "$79.00",
+      "duration": "5h",
+      "description": "Get started with the basics of machine learning, including supervised and unsupervised learning.",
+      "tags": ["Machine Learning", "Beginner"],
+      "image": "/src/images/course_ml.png",
+      "rating": 4.6,
+      "studentsEnrolled": 2000,
+      "lastUpdated": "March 2024",
+      "prerequisites": ["Basic Python knowledge"],
+      "learningOutcomes": ["Understand machine learning basics", "Implement ML models in Python"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Machine Learning",
+          "topics": ["What is Machine Learning?", "Supervised vs Unsupervised Learning"]
+        },
+        {
+          "week": 2,
+          "title": "Implementing ML Models",
+          "topics": ["Linear Regression", "Classification"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Deep Learning with TensorFlow",
+      "instructor": "Leslie Alexander",
+      "level": "Intermediate",
+      "price": "$65.00",
+      "originalPrice": "$99.00",
+      "duration": "6h",
+      "description": "Master deep learning techniques using TensorFlow, from CNNs to RNNs.",
+      "tags": ["AI", "Intermediate"],
+      "image": "/src/images/course_dl.png",
+      "rating": 4.7,
+      "studentsEnrolled": 2500,
+      "lastUpdated": "April 2024",
+      "prerequisites": ["Basic Python and Machine Learning knowledge"],
+      "learningOutcomes": ["Understand CNNs and RNNs", "Implement deep learning models using TensorFlow"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Getting Started with TensorFlow",
+          "topics": ["Introduction to TensorFlow", "Building Neural Networks"]
+        },
+        {
+          "week": 2,
+          "title": "Advanced Deep Learning Models",
+          "topics": ["CNNs", "RNNs and LSTMs"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Natural Language Processing with Python",
+      "instructor": "Kristin Watson",
+      "level": "Expert",
+      "price": "$72.00",
+      "originalPrice": "$110.00",
+      "duration": "7h",
+      "description": "Delve into NLP concepts like tokenization, sentiment analysis, and language generation.",
+      "tags": ["NLP", "Expert"],
+      "image": "/src/images/course_nlp.png",
+      "rating": 4.8,
+      "studentsEnrolled": 1800,
+      "lastUpdated": "May 2024",
+      "prerequisites": ["Python and Machine Learning basics"],
+      "learningOutcomes": ["Understand NLP concepts", "Implement NLP algorithms using Python"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to NLP",
+          "topics": ["Tokenization", "Sentiment Analysis"]
+        },
+        {
+          "week": 2,
+          "title": "Advanced NLP Techniques",
+          "topics": ["Language Generation", "Transformer Models"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Data Science and Visualization",
+      "instructor": "Devon Lane",
+      "level": "Beginner",
+      "price": "$45.00",
+      "originalPrice": "$75.00",
+      "duration": "4h",
+      "description": "Learn data science techniques and visualization tools like Matplotlib and Seaborn.",
+      "tags": ["Data Science", "Beginner"],
+      "image": "/src/images/course_ds.png",
+      "rating": 4.4,
+      "studentsEnrolled": 2100,
+      "lastUpdated": "June 2024",
+      "prerequisites": ["Basic Python knowledge"],
+      "learningOutcomes": ["Understand data science basics", "Create data visualizations with Python"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Data Science",
+          "topics": ["Data Science Overview", "Data Cleaning"]
+        },
+        {
+          "week": 2,
+          "title": "Data Visualization",
+          "topics": ["Creating Visualizations with Matplotlib", "Using Seaborn for Advanced Plots"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "AI for Image Processing",
+      "instructor": "Eleanor Pena",
+      "level": "Intermediate",
+      "price": "$68.00",
+      "originalPrice": "$99.00",
+      "duration": "5h",
+      "description": "Explore AI techniques for image processing, including convolutional neural networks.",
+      "tags": ["Image Processing", "Intermediate"],
+      "image": "/src/images/course_image_processing.png",
+      "rating": 4.6,
+      "studentsEnrolled": 1800,
+      "lastUpdated": "July 2024",
+      "prerequisites": ["Basic Python and AI knowledge"],
+      "learningOutcomes": ["Understand CNNs for image processing", "Apply image processing techniques using AI"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to AI for Image Processing",
+          "topics": ["Overview of Image Processing", "AI Techniques for Images"]
+        },
+        {
+          "week": 2,
+          "title": "Advanced CNN Techniques",
+          "topics": ["Building CNN Models", "Applications in Real-World Image Processing"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Backend Development with Spring Boot",
+      "instructor": "Arlene McCoy",
+      "level": "Beginner",
+      "price": "$52.00",
+      "originalPrice": "$70.00",
+      "duration": "6h",
+      "description": "Build RESTful APIs and microservices with Spring Boot and Java.",
+      "tags": ["Backend", "Beginner"],
+      "image": "/src/images/course_springboot.png",
+      "rating": 4.5,
+      "studentsEnrolled": 1400,
+      "lastUpdated": "August 2024",
+      "prerequisites": ["Basic Java knowledge"],
+      "learningOutcomes": ["Build RESTful APIs", "Develop microservices using Spring Boot"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Spring Boot",
+          "topics": ["What is Spring Boot?", "Setting up Your Development Environment"]
+        },
+        {
+          "week": 2,
+          "title": "Building APIs",
+          "topics": ["Creating RESTful APIs", "Deploying Microservices"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Frontend Development with React",
+      "instructor": "Guy Hawkins",
+      "level": "Intermediate",
+      "price": "$60.00",
+      "originalPrice": "$90.00",
+      "duration": "8h",
+      "description": "Learn how to build interactive user interfaces with React and Redux.",
+      "tags": ["Frontend", "Intermediate"],
+      "image": "/src/images/course_react.png",
+      "rating": 4.7,
+      "studentsEnrolled": 2300,
+      "lastUpdated": "September 2024",
+      "prerequisites": ["Basic JavaScript knowledge"],
+      "learningOutcomes": ["Build dynamic web apps with React", "State management with Redux"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to React",
+          "topics": ["React Components", "State and Props"]
+        },
+        {
+          "week": 2,
+          "title": "Advanced React Concepts",
+          "topics": ["Redux for State Management", "Building a Complete Web App"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Cybersecurity Fundamentals",
+      "instructor": "Jacob Jones",
+      "level": "Beginner",
+      "price": "$40.00",
+      "originalPrice": "$70.00",
+      "duration": "6h",
+      "description": "Understand the basics of cybersecurity and how to protect systems from threats.",
+      "tags": ["Cybersecurity", "Beginner"],
+      "image": "/src/images/course_cybersecurity.png",
+      "rating": 4.4,
+      "studentsEnrolled": 1700,
+      "lastUpdated": "October 2024",
+      "prerequisites": ["None"],
+      "learningOutcomes": ["Understand cybersecurity basics", "Identify and mitigate security threats"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Cybersecurity",
+          "topics": ["Overview of Cybersecurity", "Common Cyber Threats"]
+        },
+        {
+          "week": 2,
+          "title": "Security Best Practices",
+          "topics": ["Securing Networks", "Implementing Firewalls"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "DevOps with Docker and Kubernetes",
+      "instructor": "Darlene Robertson",
+      "level": "Advanced",
+      "price": "$85.00",
+      "originalPrice": "$110.00",
+      "duration": "9h",
+      "description": "Master DevOps tools like Docker and Kubernetes for automating and managing applications.",
+      "tags": ["DevOps", "Advanced"],
+      "image": "/src/images/course_devops.png",
+      "rating": 4.9,
+      "studentsEnrolled": 3000,
+      "lastUpdated": "November 2024",
+      "prerequisites": ["Basic Linux knowledge", "Familiarity with cloud platforms"],
+      "learningOutcomes": ["Use Docker for containerization", "Manage Kubernetes clusters"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Docker",
+          "topics": ["Containerization with Docker", "Building Docker Images"]
+        },
+        {
+          "week": 2,
+          "title": "Managing Kubernetes",
+          "topics": ["Kubernetes Clusters", "Scaling Applications with Kubernetes"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Cloud Computing with AWS",
+      "instructor": "Courtney Henry",
+      "level": "Intermediate",
+      "price": "$70.00",
+      "originalPrice": "$95.00",
+      "duration": "7h",
+      "description": "Learn how to deploy and manage applications in the AWS cloud environment.",
+      "tags": ["Cloud", "Intermediate"],
+      "image": "/src/images/course_aws.png",
+      "rating": 4.6,
+      "studentsEnrolled": 2100,
+      "lastUpdated": "December 2024",
+      "prerequisites": ["Basic networking knowledge", "Familiarity with cloud platforms"],
+      "learningOutcomes": ["Deploy applications on AWS", "Understand cloud architecture"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to AWS",
+          "topics": ["Overview of AWS Services", "Setting up an AWS Account"]
+        },
+        {
+          "week": 2,
+          "title": "Deploying Applications",
+          "topics": ["Elastic Beanstalk", "Managing AWS Resources"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Blockchain for Beginners",
+      "instructor": "Albert Flores",
+      "level": "Beginner",
+      "price": "$35.00",
+      "originalPrice": "$60.00",
+      "duration": "3h",
+      "description": "Understand the basics of blockchain technology and how it's revolutionizing industries.",
+      "tags": ["Blockchain", "Beginner"],
+      "image": "/src/images/course_blockchain.png",
+      "rating": 4.2,
+      "studentsEnrolled": 1200,
+      "lastUpdated": "January 2025",
+      "prerequisites": ["None"],
+      "learningOutcomes": ["Understand blockchain fundamentals", "Learn how blockchain works in real-world applications"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "What is Blockchain?",
+          "topics": ["Blockchain Overview", "Cryptographic Hash Functions"]
+        },
+        {
+          "week": 2,
+          "title": "Blockchain in Practice",
+          "topics": ["Blockchain Use Cases", "Building Smart Contracts"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Quantum Computing Basics",
+      "instructor": "Ralph Edwards",
+      "level": "Advanced",
+      "price": "$90.00",
+      "originalPrice": "$120.00",
+      "duration": "10h",
+      "description": "Dive deep into quantum computing principles, quantum gates, and algorithms.",
+      "tags": ["Quantum Computing", "Advanced"],
+      "image": "/src/images/course_quantum.png",
+      "rating": 4.9,
+      "studentsEnrolled": 3200,
+      "lastUpdated": "February 2025",
+      "prerequisites": ["Linear algebra", "Familiarity with classical computing"],
+      "learningOutcomes": ["Understand quantum gates", "Implement quantum algorithms"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Quantum Computing",
+          "topics": ["Quantum Bits", "Superposition and Entanglement"]
+        },
+        {
+          "week": 2,
+          "title": "Quantum Algorithms",
+          "topics": ["Grover's Algorithm", "Quantum Fourier Transform"]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Introduction to Augmented Reality",
+      "instructor": "Kathryn Murphy",
+      "level": "Beginner",
+      "price": "$50.00",
+      "originalPrice": "$80.00",
+      "duration": "4h",
+      "description": "Learn the basics of augmented reality and how to create AR experiences using Unity.",
+      "tags": ["AR", "Beginner"],
+      "image": "/src/images/course_ar.png",
+      "rating": 4.3,
+      "studentsEnrolled": 1300,
+      "lastUpdated": "March 2025",
+      "prerequisites": ["Basic Unity knowledge"],
+      "learningOutcomes": ["Understand AR principles", "Create AR apps using Unity"],
+      "curriculum": [
+        {
+          "week": 1,
+          "title": "Introduction to Augmented Reality",
+          "topics": ["What is Augmented Reality?", "AR vs VR"]
+        },
+        {
+          "week": 2,
+          "title": "Building AR Applications",
+          "topics": ["Using Unity for AR", "Deploying AR Applications"]
+        }
+      ]
+    }
+  ]
+  
