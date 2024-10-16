@@ -1,5 +1,6 @@
 [
     {
+      "id":1,
       "title": "Mastering Interaction Design",
       "instructor": "Devon Lane",
       "level": "Expert",
@@ -11,6 +12,7 @@
       "image": "/src/images/course2.png"
     },
     {
+      "id":2,
       "title": "Apple HIG Mastery: Creating Seamless User Interfaces",
       "instructor": "Jerome Bell",
       "level": "Beginner",
@@ -22,6 +24,7 @@
       "image": "/src/images/course1.png"
     },
     {
+      "id":3,
       "title": "Introduction to Machine Learning with Python",
       "instructor": "Cameron Williamson",
       "level": "Beginner",
@@ -33,6 +36,7 @@
       "image": "/src/images/course_ml.png"
     },
     {
+      "id":4,
       "title": "Deep Learning with TensorFlow",
       "instructor": "Leslie Alexander",
       "level": "Intermediate",
@@ -44,6 +48,7 @@
       "image": "/src/images/course_dl.png"
     },
     {
+      "id":5,
       "title": "Natural Language Processing with Python",
       "instructor": "Kristin Watson",
       "level": "Expert",
@@ -55,6 +60,7 @@
       "image": "/src/images/course_nlp.png"
     },
     {
+      "id":6,
       "title": "Data Science and Visualization",
       "instructor": "Devon Lane",
       "level": "Beginner",
@@ -66,6 +72,7 @@
       "image": "/src/images/course_ds.png"
     },
     {
+      "id":7,
       "title": "AI for Image Processing",
       "instructor": "Eleanor Pena",
       "level": "Intermediate",
@@ -77,6 +84,7 @@
       "image": "/src/images/course_image_processing.png"
     },
     {
+      "id":8,
       "title": "Backend Development with Spring Boot",
       "instructor": "Arlene McCoy",
       "level": "Beginner",
@@ -88,6 +96,7 @@
       "image": "/src/images/course_springboot.png"
     },
     {
+      "id":9,
       "title": "Advanced Java Programming",
       "instructor": "Marvin McKinney",
       "level": "Expert",
@@ -99,6 +108,7 @@
       "image": "/src/images/course_java.png"
     },
     {
+      "id":10,
       "title": "Django for Web Development",
       "instructor": "Courtney Henry",
       "level": "Intermediate",
@@ -110,6 +120,7 @@
       "image": "/src/images/course_django.png"
     },
     {
+      "id":11,
       "title": "Game Development with Unity",
       "instructor": "Darlene Robertson",
       "level": "Beginner",
@@ -121,6 +132,7 @@
       "image": "/src/images/course_unity.png"
     },
     {
+      "id":12,
       "title": "Reinforcement Learning Fundamentals",
       "instructor": "Guy Hawkins",
       "level": "Expert",
@@ -132,6 +144,7 @@
       "image": "/src/images/course_rl.png"
     },
     {
+      "id":13,
       "title": "Introduction to Data Engineering",
       "instructor": "Ralph Edwards",
       "level": "Beginner",
@@ -143,6 +156,7 @@
       "image": "/src/images/course_de.png"
     },
     {
+      "id":14,
       "title": "Advanced NLP with Transformers",
       "instructor": "Sara Lee",
       "level": "Expert",
@@ -154,6 +168,7 @@
       "image": "/src/images/course_transformers.png"
     },
     {
+      "id":15,
       "title": "Machine Learning for Healthcare",
       "instructor": "Leslie Alexander",
       "level": "Intermediate",
@@ -165,6 +180,7 @@
       "image": "/src/images/course_ml_healthcare.png"
     },
     {
+      "id":16,
       "title": "Building Scalable Backend Systems",
       "instructor": "Wade Warren",
       "level": "Expert",

@@ -13,6 +13,7 @@ import CourseList from './components/CourseList';
 import ProtectedRoute from './components/ProtectedRoute'; // Import your ProtectedRoute component
 import coursesData from './data/courses.json';
 import CareerExplorer from './components/CareerExplorer';
+import CourseDetails from './components/CourseDetails';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                 <Route path="mentors/:mentorId" element={<MentorProfile />} />
                 <Route path="explore/" element={<CareerExplorer />} />
                 <Route path="courses" element={<CourseList courses={coursesData} />} />
+                <Route path="/course/:id" element={<CourseDetails/>} />
               </Routes>
             </ProtectedRoute>
           } 
