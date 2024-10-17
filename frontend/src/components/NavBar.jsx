@@ -4,7 +4,7 @@ import './NavBar.css'; // Add custom styling here
 
 function NavBar() {
   return (
-    <nav className="navbar">
+    <nav className="nav">
       <div className="navbar-logo">
         <Link to="/home">TechPoint</Link>
       </div>
