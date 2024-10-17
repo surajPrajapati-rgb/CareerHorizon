@@ -1,4 +1,8 @@
 /* Hero Section */
+
+header{
+    margin-top: 64px;
+}
 .heroSection {
     background-color: #1a1a2e;
     color: #ffffff;
