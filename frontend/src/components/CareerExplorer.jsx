@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import styles from "./ExploreCareer.module.css";
 
 const ExploreCareer = () => {
+  const navigate = useNavigate();
   const careers = [
     { title: "Software Development", description: "Create applications and software solutions." },
     { title: "Data Science", description: "Analyze data and build machine learning models." },
@@ -32,10 +34,14 @@ const ExploreCareer = () => {
       </header>
       
       <section id="career-paths" className={styles.careerPathsSection}>
-        <h2>Career Paths</h2>
+      <h2>Career Paths</h2>
         <div className={styles.cardContainer}>
           {careers.map((career, index) => (
-            <div key={index} className={styles.careerCard}>
+            <div
+              key={index}
+              className={styles.careerCard}
+              onClick={() => navigate('/career-path')}
+            >
               <h3>{career.title}</h3>
               <p>{career.description}</p>
             </div>
