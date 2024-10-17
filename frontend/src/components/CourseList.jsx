@@ -7,7 +7,7 @@ const Header = styled.h2`
   text-align: center;
   font-size: 1.8em;
   font-weight: bold;
-  margin-top: 24px;
+  margin-top: 90px;
   color: #333;
 `;
 

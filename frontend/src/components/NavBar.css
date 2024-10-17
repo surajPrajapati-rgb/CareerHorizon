@@ -1,42 +1,99 @@
-/* Make sure this CSS file is properly imported */
 .nav {
-  position: fixed;          /* This fixes the navbar to the top */
-  top: 0;                   /* Align it at the top */
-  left: 0;                  /* Align it to the left edge */
-  width: 100%;              /* Make sure it spans across the screen */
-  display: flex;            /* Use flexbox for layout */
-  justify-content: space-between; /* Space between logo, links, and profile */
-  align-items: center;      /* Align items vertically */
-  background-color: #3b5998; /* Background color */
-  padding: 10px 20px;       /* Padding for spacing */
-  z-index: 1000;            /* Ensure it stays on top of all other elements */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for effect */
+  position: fixed;          
+  top: 0;                   
+  left: 0;                  
+  width: 100%;              
+  display: flex;            
+  justify-content: space-between; 
+  align-items: center;      
+  background-color: #3b5998; 
+  padding: 10px 20px;      
+  z-index: 1000;            
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-  
-  .navbar-logo a {
-    color: white;
-    font-size: 1.5rem;
-    text-decoration: none;
+
+.navbar-logo {
+  margin-left: 20px;
+}
+
+.navbar-logo a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex; 
+  align-items: center;
+  background-color: transparent;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.navbar-profile {
+  margin-right: 1px;
+}
+
+.navbar-profile img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none; 
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; 
   }
-  
+
+  .navbar-links {
+    display: none; 
+    position: absolute;
+    top: 50px; 
+    right: 10px; 
+    width: auto; 
+    background-color: #3b5998;
+    padding: 10px 0;
+    border-radius: 5px; 
+  }
+
+  .navbar-links.active {
+    display: flex; 
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar-logo {
+    flex-grow: 0; 
+  }
+
+  .navbar-profile {
+    margin-right: 20px;
+  }
+}
+
+/* Small screens like phones (480px and below) */
+@media (max-width: 480px) {
+  .navbar-links.active {
+    display: flex;
+    justify-content: center;
+  }
+
   .navbar-links a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
+    padding: 10px 0;
+    width: 100%;
   }
-  
-  .navbar-profile img {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .navbar-logo{
-    margin-left: 10px;
-  }
-
-  .navbar-profile{
-    margin-right: 10px;
-  }
-  
+}
