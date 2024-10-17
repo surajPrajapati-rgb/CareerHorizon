@@ -1,10 +1,17 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3b5998;
-    padding: 10px 20px;
-  }
+/* Make sure this CSS file is properly imported */
+.nav {
+  position: fixed;          /* This fixes the navbar to the top */
+  top: 0;                   /* Align it at the top */
+  left: 0;                  /* Align it to the left edge */
+  width: 100%;              /* Make sure it spans across the screen */
+  display: flex;            /* Use flexbox for layout */
+  justify-content: space-between; /* Space between logo, links, and profile */
+  align-items: center;      /* Align items vertically */
+  background-color: #3b5998; /* Background color */
+  padding: 10px 20px;       /* Padding for spacing */
+  z-index: 1000;            /* Ensure it stays on top of all other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for effect */
+}
   
   .navbar-logo a {
     color: white;
