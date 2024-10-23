@@ -1,4 +1,4 @@
-# CareerHorizon - README
+# CareerHorizon
 
 ## Table of Contents
 1. [Overview](#overview)
