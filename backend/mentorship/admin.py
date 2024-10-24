@@ -2,10 +2,12 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Mentor, AvailabilitySlot, Expertise, Experience, Education, MentorSession
+from .models import Mentor, MentorAvailability, MentorSkill, MentorCategory, Review, Message,Session,Payment
 admin.site.register(Mentor)
-admin.site.register(AvailabilitySlot)
-admin.site.register(Expertise)
-admin.site.register(Experience)
-admin.site.register(Education)
-admin.site.register(MentorSession)
+admin.site.register(MentorAvailability)
+admin.site.register(MentorSkill)
+admin.site.register(MentorCategory)
+admin.site.register(Review)
+admin.site.register(Session)
+admin.site.register(Payment)
+admin.site.register(Message)
