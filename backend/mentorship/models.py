@@ -40,23 +40,24 @@ class MentorAvailability(models.Model):
         return f"{self.mentor.user.username} - {self.day_of_week} ({self.start_time} to {self.end_time})"
     
 
+class MentorCategory(models.Model):
+    mentor_category_id = models.AutoField(primary_key=True)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    category_name = models.CharField(max_length=100, default=1)  # Default value for category name
+
+    def __str__(self):
+        return f"{self.mentor.user.username} - {self.category_name}"
+
+
 
 class MentorSkill(models.Model):
     mentor_skill_id = models.AutoField(primary_key=True)
     mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
     skill_name = models.CharField(max_length=100)
+    category = models.ForeignKey(MentorCategory, on_delete=models.CASCADE)  # This is important!
 
     def __str__(self):
-        return f"{self.mentor.user.username} - {self.skill_name}"
-
-
-class MentorCategory(models.Model):
-    mentor_category_id = models.AutoField(primary_key=True)
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
-    category_name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return f"{self.mentor.user.username} - {self.category_name}"
+        return f"{self.mentor.user.username} - {self.skill_name} ({self.category.category_name})"
 
 # for reviews
 class Review(models.Model):
