@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, timezone  # Added timezone from dateti
 from faker import Faker
 import random
 from django.utils import timezone as django_timezone  # Renamed to avoid conflict with datetime's timezone
-from user_profiles.models import Profile
+from backend.ProfileSection.models import Profile
 from mentorship.models import Mentor, AvailabilitySlot, Expertise, Experience, Education, MentorSession
 
 fake = Faker()

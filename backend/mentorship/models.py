@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from backend.ProfileSection.models import Profile
 
 from django.db import models
 from django.contrib.auth.models import User  # Assuming 'Users' refers to the default User model
