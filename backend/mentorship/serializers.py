@@ -1,42 +1,77 @@
-# mentors/serializers.py
-
 from rest_framework import serializers
-from .models import Mentor, AvailabilitySlot, Expertise, Experience, Education, MentorSession
+from .models import Mentor, MentorAvailability, MentorSkill, MentorCategory, Review, Message, Session, Payment
+from django.contrib.auth.models import User  # Assuming User is used for Mentees and Mentors
 
-class AvailabilitySlotSerializer(serializers.ModelSerializer):
+
+# Serializer for Mentor Availability (formerly AvailabilitySlot)
+class MentorAvailabilitySerializer(serializers.ModelSerializer):
     class Meta:
-        model = AvailabilitySlot
+        model = MentorAvailability
         fields = ['day_of_week', 'start_time', 'end_time']
 
-class ExpertiseSerializer(serializers.ModelSerializer):
+
+# Serializer for Mentor Skills (formerly Expertise)
+class MentorSkillSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Expertise
-        fields = ['topic', 'description']
+        model = MentorSkill
+        fields = ['skill_name']
 
-class ExperienceSerializer(serializers.ModelSerializer):
+
+# Serializer for Mentor Categories (formerly Experience/Category)
+class MentorCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Experience
-        fields = ['organization', 'role', 'field', 'start_date', 'end_date', 'description']
+        model = MentorCategory
+        fields = ['category_name']
 
-class EducationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Education
-        fields = ['institution_name', 'degree', 'field_of_study', 'start_year', 'end_year']
 
-class MentorSessionSerializer(serializers.ModelSerializer):
-    mentee_name = serializers.CharField(source="mentee.name", read_only=True)
+# Serializer for Mentor Reviews
+class ReviewSerializer(serializers.ModelSerializer):
+    mentee_name = serializers.CharField(source="mentee.username", read_only=True)
+    mentor_name = serializers.CharField(source="mentor.user.username", read_only=True)
 
     class Meta:
-        model = MentorSession
-        fields = ['mentee_name', 'session_date', 'duration', 'status', 'notes']
+        model = Review
+        fields = ['mentee_name', 'mentor_name', 'rating', 'title_review', 'feedback', 'created_at']
 
+
+# Serializer for Messages
+class MessageSerializer(serializers.ModelSerializer):
+    sender_name = serializers.CharField(source="sender.username", read_only=True)
+    receiver_name = serializers.CharField(source="receiver.username", read_only=True)
+
+    class Meta:
+        model = Message
+        fields = ['sender_name', 'receiver_name', 'content', 'sent_at']
+
+
+# Serializer for Sessions (formerly MentorSession)
+class SessionSerializer(serializers.ModelSerializer):
+    mentee_name = serializers.CharField(source="mentee.username", read_only=True)
+    mentor_name = serializers.CharField(source="mentor.user.username", read_only=True)
+
+    class Meta:
+        model = Session
+        fields = ['mentee_name', 'mentor_name', 'session_topic', 'session_duration', 'session_notes', 'session_date']
+
+
+# Serializer for Payments
+class PaymentSerializer(serializers.ModelSerializer):
+    mentee_name = serializers.CharField(source="mentee.username", read_only=True)
+    session_topic = serializers.CharField(source="session.session_topic", read_only=True)
+
+    class Meta:
+        model = Payment
+        fields = ['mentee_name', 'session_topic', 'amount', 'payment_date', 'status']
+
+
+# Serializer for Mentor
 class MentorSerializer(serializers.ModelSerializer):
-    availability_slots = AvailabilitySlotSerializer(many=True, read_only=True)
-    expertise_areas = ExpertiseSerializer(many=True, read_only=True)
-    experiences = ExperienceSerializer(many=True, read_only=True)
-    education = EducationSerializer(many=True, read_only=True)
-    sessions = MentorSessionSerializer(many=True, read_only=True)
+    availability_slots = MentorAvailabilitySerializer(many=True, read_only=True)
+    skills = MentorSkillSerializer(many=True, read_only=True)
+    categories = MentorCategorySerializer(many=True, read_only=True)
+    sessions = SessionSerializer(many=True, read_only=True)
+    reviews = ReviewSerializer(many=True, read_only=True)
 
     class Meta:
         model = Mentor
-        fields = '__all__'
+        fields =  ['mentor_id','user','bio','experience_years','hourly_rate','industry','linkedin_url','education','created_at']
