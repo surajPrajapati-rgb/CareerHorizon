@@ -7,21 +7,21 @@ from django.contrib.auth.models import User  # Assuming User is used for Mentees
 class MentorAvailabilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = MentorAvailability
-        fields = ['day_of_week', 'start_time', 'end_time']
+        fields = '__all__'
 
 
 # Serializer for Mentor Skills (formerly Expertise)
 class MentorSkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = MentorSkill
-        fields = ['skill_name']
+        fields = '__all__'
 
 
 # Serializer for Mentor Categories (formerly Experience/Category)
 class MentorCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = MentorCategory
-        fields = ['category_name']
+        fields = '__all__'
 
 
 # Serializer for Mentor Reviews
@@ -31,7 +31,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = ['mentee_name', 'mentor_name', 'rating', 'title_review', 'feedback', 'created_at']
+        fields = '__all__'
 
 
 # Serializer for Messages
@@ -41,7 +41,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Message
-        fields = ['sender_name', 'receiver_name', 'content', 'sent_at']
+        fields = '__all__'
 
 
 # Serializer for Sessions (formerly MentorSession)
@@ -51,7 +51,7 @@ class SessionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Session
-        fields = ['mentee_name', 'mentor_name', 'session_topic', 'session_duration', 'session_notes', 'session_date']
+        fields = '__all__'
 
 
 # Serializer for Payments
@@ -61,7 +61,7 @@ class PaymentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Payment
-        fields = ['mentee_name', 'session_topic', 'amount', 'payment_date', 'status']
+        fields = '__all__'
 
 
 # Serializer for Mentor
@@ -74,4 +74,4 @@ class MentorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Mentor
-        fields =  ['mentor_id','user','bio','experience_years','hourly_rate','industry','linkedin_url','education','created_at']
+        fields =  '__all__'
