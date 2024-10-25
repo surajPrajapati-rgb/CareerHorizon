@@ -4,6 +4,10 @@ from django.db import models
 from django.contrib.auth.models import User  # Assuming 'Users' refers to the default User model
 
 class Mentor(models.Model):
+
+    class Meta:
+        db_table = 'Mentor'
+
     mentor_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)  # Assuming FK references the default User model
     bio = models.TextField(default="No bio provided")
@@ -20,6 +24,10 @@ class Mentor(models.Model):
 
 #for Availability slot
 class MentorAvailability(models.Model):
+
+    class Meta:
+        db_table = 'MentorAvailability'
+
     DAYS_OF_WEEK = [
         ('Monday', 'Monday'),
         ('Tuesday', 'Tuesday'),
@@ -41,6 +49,10 @@ class MentorAvailability(models.Model):
     
 
 class MentorCategory(models.Model):
+
+    class Meta:
+        db_table = 'MentorCategory'
+
     mentor_category_id = models.AutoField(primary_key=True)
     mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
     category_name = models.CharField(max_length=100, default=1)  # Default value for category name
@@ -51,6 +63,10 @@ class MentorCategory(models.Model):
 
 
 class MentorSkill(models.Model):
+
+    class Meta:
+        db_table = 'MentorSkill'
+
     mentor_skill_id = models.AutoField(primary_key=True)
     mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
     skill_name = models.CharField(max_length=100)
@@ -61,6 +77,10 @@ class MentorSkill(models.Model):
 
 # for reviews
 class Review(models.Model):
+
+    class Meta:
+        db_table = 'Review'
+
     review_id = models.AutoField(primary_key=True)
     mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)  # Assuming this references the Mentor model
     session_id = models.IntegerField()  # Assuming session_id is a simple Integer field, replace with ForeignKey if needed
@@ -75,6 +95,10 @@ class Review(models.Model):
 
 
 class Message(models.Model):
+
+    class Meta:
+        db_table = 'Message'
+
     message_id = models.AutoField(primary_key=True)
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')  # Reference to sender
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages')  # Reference to receiver
@@ -87,6 +111,10 @@ class Message(models.Model):
     
     
 class Session(models.Model):
+
+    class Meta:
+        db_table = 'Session'
+
     session_id = models.AutoField(primary_key=True)
     mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)  # Reference to Mentor
     mentee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='mentee_sessions')  # Reference to mentee
@@ -101,6 +129,10 @@ class Session(models.Model):
     
     
 class Payment(models.Model):
+
+    class Meta:
+        db_table = 'Payment'
+        
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('completed', 'Completed'),

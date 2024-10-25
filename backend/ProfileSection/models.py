@@ -3,6 +3,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
+
+    class Meta:
+        db_table = 'UserProfile'
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # user_id = models.AutoField(primary_key=True)
     # Basic user info
@@ -40,6 +44,10 @@ class Profile(models.Model):
 
 # Experience model
 class Experience(models.Model):
+
+    class Meta:
+        db_table = 'UserExperience'
+    
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='experiences')  # Link to Profile via user_id
     title = models.CharField(max_length=255)
     company = models.CharField(max_length=255)
@@ -53,6 +61,10 @@ class Experience(models.Model):
 
 # Education model
 class Education(models.Model):
+
+    class Meta:
+        db_table = 'UserEducation'
+
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='education')  # Link to Profile via user_id
     school = models.CharField(max_length=255)
     degree = models.CharField(max_length=255, blank=True, null=True)
@@ -66,6 +78,10 @@ class Education(models.Model):
 
 # Social Links model
 class SocialLink(models.Model):
+
+    class Meta:
+        db_table = 'UserSocialLink'
+
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='social_links')  # Link to Profile via user_id
     platform = models.CharField(max_length=50, choices=[
         ('linkedin', 'LinkedIn'),

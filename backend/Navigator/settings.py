@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -105,10 +106,22 @@ WSGI_APPLICATION = 'Navigator.wsgi.application'
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',  # Creates 'db.sqlite3' in the project root
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',  # Creates 'db.sqlite3' in the project root
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'CareerHorizon',  # Replace with your actual database name
+        'USER': 'root',                # Change this to the correct MySQL user
+        'PASSWORD': 'mysql23',         # Include the password for that user
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
