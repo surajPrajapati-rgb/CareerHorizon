@@ -117,9 +117,9 @@ WSGI_APPLICATION = 'Navigator.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'CareerHorizon',  # Replace with your actual database name
+        'NAME': 'career_horizon',  # Replace with your actual database name
         'USER': 'root',                # Change this to the correct MySQL user
-        'PASSWORD': 'mysql23',         # Include the password for that user
+        'PASSWORD': 'Dak@blru22',         # Include the password for that user
         'HOST': 'localhost',
         'PORT': '3306',
     }
