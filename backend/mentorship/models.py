@@ -39,7 +39,7 @@ class MentorAvailability(models.Model):
     ]
 
     availability_id = models.AutoField(primary_key=True)
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,related_name='availability_slots')
     day_of_week = models.CharField(max_length=9, choices=DAYS_OF_WEEK)
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -54,7 +54,7 @@ class MentorCategory(models.Model):
         db_table = 'MentorCategory'
 
     mentor_category_id = models.AutoField(primary_key=True)
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,related_name='categories')  
     category_name = models.CharField(max_length=100, default=1)  # Default value for category name
 
     def __str__(self):
@@ -68,7 +68,7 @@ class MentorSkill(models.Model):
         db_table = 'MentorSkill'
 
     mentor_skill_id = models.AutoField(primary_key=True)
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,related_name='skills')
     skill_name = models.CharField(max_length=100)
     category = models.ForeignKey(MentorCategory, on_delete=models.CASCADE)  # This is important!
 
@@ -82,7 +82,7 @@ class Review(models.Model):
         db_table = 'Review'
 
     review_id = models.AutoField(primary_key=True)
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)  # Assuming this references the Mentor model
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,related_name='reviews')  # Assuming this references the Mentor model
     session_id = models.IntegerField()  # Assuming session_id is a simple Integer field, replace with ForeignKey if needed
     mentee = models.ForeignKey(User, on_delete=models.CASCADE)  # Assuming mentees are users in the User model
     rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])  # Rating options from 1 to 5
@@ -116,7 +116,7 @@ class Session(models.Model):
         db_table = 'Session'
 
     session_id = models.AutoField(primary_key=True)
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)  # Reference to Mentor
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,related_name='session')  # Reference to Mentor
     mentee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='mentee_sessions')  # Reference to mentee
     appointment_id = models.IntegerField()  # Assuming appointment_id is an integer field, adjust if necessary
     session_topic = models.CharField(max_length=255)
