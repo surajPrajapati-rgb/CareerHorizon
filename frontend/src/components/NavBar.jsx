@@ -12,7 +12,7 @@ function NavBar() {
   return (
     <nav className="nav">
       <div className="navbar-logo">
-        <Link to="/home">TechPoint</Link>
+        <Link to="/home">CareerHorizon</Link>
       </div>
 
       {/* Hamburger Menu Icon */}
