@@ -15,6 +15,7 @@ import coursesData from './data/courses.json';
 import CareerExplorer from './components/CareerExplorer';
 import BackendDeveloper from './components/BackendDeveloper';
 import CourseDetails from './components/CourseDetails';
+import MentorList from './components/MentorList';
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
                 <Route path="home" element={<HomePage />} />
                 {/* <Route path="profile/:user_id" element={<ProfilePage />} /> */}
                 <Route path="profile/" element={<ProfilePage />} />
-                <Route path="mentors" element={<MentorPage />} />
+                <Route path="mentors" element={<MentorList/>} />
                 <Route path="mentors/:mentorId" element={<MentorProfile />} />
                 <Route path="explore/" element={<CareerExplorer />} />
                 <Route path="career-path/" element={<BackendDeveloper />} />
