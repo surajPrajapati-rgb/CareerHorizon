@@ -19,5 +19,4 @@ const MentorCard = ({ mentor }) => {
     </div>
   );
 };
-
 export default MentorCard;
