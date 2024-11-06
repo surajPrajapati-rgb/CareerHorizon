@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'mentorship',
     'ProfileSection',
     'rest_framework',
+    'rest_framework_simplejwt',
     'rest_framework.authtoken',
     'corsheaders',
     'dj_rest_auth',
