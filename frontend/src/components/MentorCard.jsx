@@ -14,7 +14,7 @@ const MentorCard = ({ mentor }) => {
       {reviews.length > 0 ? (
         <p>({reviews.length} reviews)</p>
       ) : (
-        <p>No reviews available.</p>
+        <p>0 reviews</p>
       )}
     </div>
   );
