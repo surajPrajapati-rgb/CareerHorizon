@@ -115,12 +115,14 @@ class Command(BaseCommand):
                 )
                 mentor = Mentor.objects.create(
                     user=mentor_user,
+                    mentor_name=fake.name(),  
                     bio=fake.text(),
                     experience_years=fake.random_int(min=1, max=20),
                     hourly_rate=fake.random_int(min=50, max=500),
                     industry=fake.random_element(list(categories_and_skills.keys())),
                     linkedin_url=fake.url(),
-                    education=fake.random_element(["BSc", "MSc", "PhD"])
+                    education=fake.random_element(["BSc", "MSc", "PhD"]),
+                    mentor_image_url=fake.image_url()  # Add the mentor image URL here
                 )
 
                 # Create availability slots

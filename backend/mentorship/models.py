@@ -10,6 +10,8 @@ class Mentor(models.Model):
 
     mentor_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)  # Assuming FK references the default User model
+    mentor_name = models.CharField(max_length=100, default="Default Name")
+    mentor_image_url = models.URLField(max_length=255, null=True, blank=True)
     bio = models.TextField(default="No bio provided")
     experience_years = models.IntegerField(default=0)
     hourly_rate = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
