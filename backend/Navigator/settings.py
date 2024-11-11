@@ -67,7 +67,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'Navigator.urls'
 
 # Channels Configuration
-ASGI_APPLICATION = 'messaging.asgi.application'
+ASGI_APPLICATION = 'Navigator.asgi.application'
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
