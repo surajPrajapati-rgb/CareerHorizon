@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'dj_rest_auth',
+    'channels',
+    'messaging',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +66,16 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'Navigator.urls'
 
-
+# Channels Configuration
+ASGI_APPLICATION = 'messaging.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6380)],
+        },
+    },
+}
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',  # Temporarily allow all requests
