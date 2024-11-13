@@ -1,5 +1,6 @@
-.env
-
+venv/
+.gitignore/
+# Ignore Python bytecode
 __pycache__/
 *.py[cod]
 
@@ -13,3 +14,4 @@ __pycache__/
 
 .DS_Store
 Thumbs.db
+
