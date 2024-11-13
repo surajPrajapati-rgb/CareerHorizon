@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'channels',
     'pytest_django'
-    
 ]
 
 MIDDLEWARE = [
