@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Mentor, MentorAvailability, MentorSkill, MentorCategory, Review, Message, Session, Payment
+from .models import Mentor, MentorAvailability, MentorSkill, MentorCategory, Review, Session, Payment
 from django.contrib.auth.models import User  # Assuming User is used for Mentees and Mentors
 
 
@@ -34,14 +34,14 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-# Serializer for Messages
-class MessageSerializer(serializers.ModelSerializer):
-    sender_name = serializers.CharField(source="sender.username", read_only=True)
-    receiver_name = serializers.CharField(source="receiver.username", read_only=True)
+# # Serializer for Messages
+# class MessageSerializer(serializers.ModelSerializer):
+#     sender_name = serializers.CharField(source="sender.username", read_only=True)
+#     receiver_name = serializers.CharField(source="receiver.username", read_only=True)
 
-    class Meta:
-        model = Message
-        fields = '__all__'
+#     class Meta:
+#         model = Message
+#         fields = '__all__'
 
 
 # Serializer for Sessions (formerly MentorSession)

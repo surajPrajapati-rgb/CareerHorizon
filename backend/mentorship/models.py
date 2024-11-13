@@ -96,19 +96,19 @@ class Review(models.Model):
         return f"Review by {self.mentee.username} for {self.mentor.user.username} - Rating: {self.rating}"
 
 
-class Message(models.Model):
+# class Message(models.Model):
 
-    class Meta:
-        db_table = 'Message'
+#     class Meta:
+#         db_table = 'Message'
 
-    message_id = models.AutoField(primary_key=True)
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')  # Reference to sender
-    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages')  # Reference to receiver
-    content = models.TextField()
-    sent_at = models.DateTimeField(auto_now_add=True)  # Automatically set timestamp when the message is sent
+#     message_id = models.AutoField(primary_key=True)
+#     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')  # Reference to sender
+#     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages')  # Reference to receiver
+#     content = models.TextField()
+#     sent_at = models.DateTimeField(auto_now_add=True)  # Automatically set timestamp when the message is sent
 
-    def __str__(self):
-        return f"Message from {self.sender.username} to {self.receiver.username} at {self.sent_at}"
+#     def __str__(self):
+#         return f"Message from {self.sender.username} to {self.receiver.username} at {self.sent_at}"
     
     
     
