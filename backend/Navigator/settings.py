@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -29,7 +29,18 @@ SECRET_KEY = 'django-insecure-2v86tfc(f7h(==fns1tru7@z($bw98g+=v(hb^$m!l3p!qb@t_
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# Channels Configuration
+ASGI_APPLICATION = 'Navigator.asgi.application'
+WSGI_APPLICATION = 'Navigator.wsgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Application definition
 INSTALLED_APPS = [
@@ -42,14 +53,16 @@ INSTALLED_APPS = [
     'accounts',
     'Navigator',
     'mentorship',
-    'ProfileSection',
+    # 'ProfileSection',
+    'messaging',
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework.authtoken',
     'corsheaders',
     'dj_rest_auth',
     'channels',
-    'messaging',
+    'pytest_django'
+    
 ]
 
 MIDDLEWARE = [
@@ -64,19 +77,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'Navigator.urls'
 
-# Channels Configuration
-ASGI_APPLICATION = 'Navigator.asgi.application'
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('127.0.0.1', 6380)],
-        },
-    },
-}
+LOGIN_URL = '/accounts/login/'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',  # Temporarily allow all requests
@@ -95,9 +99,7 @@ REST_FRAMEWORK = {
 #     ],
 # }
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # Adjust this for the frontend URL (e.g., React app)
-]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

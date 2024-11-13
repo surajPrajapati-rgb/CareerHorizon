@@ -22,6 +22,7 @@ from rest_framework import routers
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('mentorship.urls')), # Include mentorship URLs
-    path('api/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('api/', include('ProfileSection.urls')),
     path('messaging/', include('messaging.urls')),
 ]
