@@ -17,9 +17,11 @@ import BackendDeveloper from './components/BackendDeveloper';
 import CourseDetails from './components/CourseDetails';
 import MentorList from './components/MentorList';
 import ChatBox from './components/messaging/ChatBox';
+import { UserProvider } from './context/UserContext';
 
 function App() {
   return (
+    <UserProvider>
     <Router>
       <Routes>
         {/* Public Routes */}
@@ -27,7 +29,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/chat" element={<ChatBox />} />
+        
         
         {/* Protected Routes with NavBar */}
         <Route 
@@ -45,12 +47,14 @@ function App() {
                 <Route path="career-path/" element={<BackendDeveloper />} />
                 <Route path="courses" element={<CourseList courses={coursesData} />} />
                 <Route path="/course/:id" element={<CourseDetails/>} />
+                <Route path="/chat" element={<ChatBox />} />
               </Routes>
             </ProtectedRoute>
           } 
         />
       </Routes>
     </Router>
+    </UserProvider>
   );
 }
 

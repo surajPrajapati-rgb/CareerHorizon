@@ -1,14 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
+import { UserContext } from '../../context/UserContext';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import styles from './ChatBox.module.css';
 
 const ChatBox = () => {
+  const { user } = useContext(UserContext);
   const [messages, setMessages] = useState([]);
   const socketRef = useRef(null);
+  console.log('ChatBox component mounted with user:', user);
+  console.log('Message:', messages);
 
   useEffect(() => {
-    // Connect to WebSocket server
+    
     socketRef.current = new WebSocket('ws://localhost:8000/ws/chat/room1/');
 
     socketRef.current.onopen = () => {
@@ -17,15 +21,7 @@ const ChatBox = () => {
 
     socketRef.current.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      setMessages((prevMessages) => [...prevMessages, data.message]);
-    };
-
-    socketRef.current.onerror = (error) => {
-      console.error('WebSocket Error:', error);
-    };
-
-    socketRef.current.onclose = (event) => {
-      console.log('WebSocket Closed:', event);
+      setMessages((prevMessages) => [...prevMessages, data]);
     };
 
     return () => {
@@ -35,7 +31,9 @@ const ChatBox = () => {
 
   const handleSendMessage = (message) => {
     if (message.trim() && socketRef.current.readyState === WebSocket.OPEN) {
-      socketRef.current.send(JSON.stringify({ message }));
+      const data = JSON.stringify({ sender: user?.email, message });
+      console.log('Sending message:', data);
+      socketRef.current.send(data);
     }
   };
 

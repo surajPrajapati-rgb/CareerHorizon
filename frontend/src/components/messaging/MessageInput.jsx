@@ -11,21 +11,21 @@ const MessageInput = ({ onSendMessage }) => {
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSend();
     }
   };
 
   return (
-    <div className={styles.inputContainer}>
+    <div className={styles.messageInputContainer}>
       <input
         type="text"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        onKeyDown={handleKeyDown}
+        onKeyPress={handleKeyPress}
         placeholder="Type a message..."
-        className={styles.inputField}
+        className={styles.input}
       />
       <button onClick={handleSend} className={styles.sendButton}>
         Send
