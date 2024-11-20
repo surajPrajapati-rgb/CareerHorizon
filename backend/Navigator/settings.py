@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'accounts',
     'Navigator',
     'mentorship',
+    'payment',
     # 'ProfileSection',
     'messaging',
     'rest_framework',
