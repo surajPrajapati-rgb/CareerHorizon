@@ -17,6 +17,7 @@ import BackendDeveloper from './components/BackendDeveloper';
 import CourseDetails from './components/CourseDetails';
 import MentorList from './components/MentorList';
 import ChatBox from './components/messaging/ChatBox';
+import ChatPage from './components/messaging/ChatPage';
 import { UserProvider } from './context/UserContext';
 
 function App() {
@@ -47,7 +48,8 @@ function App() {
                 <Route path="career-path/" element={<BackendDeveloper />} />
                 <Route path="courses" element={<CourseList courses={coursesData} />} />
                 <Route path="/course/:id" element={<CourseDetails/>} />
-                <Route path="/chat" element={<ChatBox />} />
+                <Route path="/chat" element={<ChatPage />} />
+                {/* <Route path="/chat/:username" element={<ChatPage />} /> */}
               </Routes>
             </ProtectedRoute>
           } 

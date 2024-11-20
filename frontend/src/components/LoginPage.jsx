@@ -22,7 +22,7 @@ const LoginPage = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8000/api/login/', {
+      const response = await fetch('http://localhost:8000/accounts/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -32,6 +32,7 @@ const LoginPage = () => {
         const data = await response.json();
         localStorage.setItem('token', data.token);
         localStorage.setItem('userEmail', email);
+        console.log(data);
         navigate('/home'); // Redirect to home page after login
       } else {
         setError('Invalid credentials');

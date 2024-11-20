@@ -77,27 +77,39 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ALLOW_CREDENTIALS = True
+
+
 ROOT_URLCONF = 'Navigator.urls'
 
 LOGIN_URL = '/accounts/login/'
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.AllowAny',  # Temporarily allow all requests
+#     ],
+# }
+
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',  # Temporarily allow all requests
     ],
 }
 
 
-# # Django REST Framework configuration
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT Authentication
-#         'rest_framework.authentication.SessionAuthentication',  # For session authentication
-#     ],
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',  # Global permission policy
-#     ],
-# }
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=12000),  # Default: 5 minutes
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),     # Default: 1 day
+}
+
+# CSRF_COOKIE_SECURE = False  # Only for development
+# CSRF_COOKIE_HTTPONLY = False  # Only for development
 
 
 TEMPLATES = [

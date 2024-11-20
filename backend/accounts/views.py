@@ -25,19 +25,44 @@ def register(request):
     return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
 
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 def login(request):
-    email = request.data.get('email')
-    password = request.data.get('password')
+    if request.method == 'GET':
+        # Handle GET login (query parameters)
+        email = request.query_params.get('email')
+        password = request.query_params.get('password')
+    elif request.method == 'POST':
+        # Handle POST login (JSON body)
+        email = request.data.get('email')
+        password = request.data.get('password')
+    else:
+        return Response({"error": "Method not allowed"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    if not email or not password:
+        return Response({"error": "Email and password are required"}, status=status.HTTP_400_BAD_REQUEST)
 
     user = authenticate(request, username=email, password=password)
     if user is not None:
         django_login(request, user)
-        # Optionally, create/retrieve token if using TokenAuthentication
         token, _ = Token.objects.get_or_create(user=user)
         return Response({"message": "Login successful", "token": token.key}, status=status.HTTP_200_OK)
     else:
         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+# @api_view(['POST'])
+# def login(request):
+#     email = request.data.get('email')
+#     password = request.data.get('password')
+
+#     user = authenticate(request, username=email, password=password)
+#     if user is not None:
+#         django_login(request, user)
+#         # Optionally, create/retrieve token if using TokenAuthentication
+#         token, _ = Token.objects.get_or_create(user=user)
+#         return Response({"message": "Login successful", "token": token.key}, status=status.HTTP_200_OK)
+#     else:
+#         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 @api_view(['POST'])
