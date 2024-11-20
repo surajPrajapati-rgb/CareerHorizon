@@ -1,106 +1,207 @@
-// src/components/WelcomePage.jsx
-import React from 'react';
-import './WelcomePage.css'; // Add custom styles here
+
+import React, { useState } from 'react';
+import './WelcomePage.css';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import backgroundImage from '../assets/coach-mentor.jpeg';
 
 const WelcomePage = () => {
+  const [role, setRole] = useState('mentee');
+  
   return (
-    <div className="welcome-page">
+    <div>
+      {/* Navbar */}
+      <div className="navbar navbar-expand-lg navbar-light bg-light fixed-top py-3">
+        <div className="container">
+          <a className="navbar-brand" href="#" style={{ fontWeight: 900 }}>
+            CareerHorizon
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <div className="ms-auto d-flex">
+              <a href="/login">
+                <button
+                  className="btn btn-outline-dark me-2"
+                  style={{ padding: '10px 15px', fontSize: '14px' }}
+                >
+                  Login
+                </button>
+              </a>
+              <a href="/signup">
+                <button
+                  className="btn btn-dark"
+                  style={{ padding: '10px 15px', fontSize: '14px' }}
+                >
+                  Get started today
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="hero-section text-center text-white bg-primary py-5">
-        <div className="container">
-          <h1 className="display-4">Bridging the Gap Between Learning and Careers</h1>
-          <p className="lead">
-            Connect the dots between education and industry with curated learning paths, mentor guidance, and free content from top platforms.
-          </p>
+      <div
+        className="hero-section"
+        style={{
+          height: '80vh',
+          marginTop: '80px',
+          backgroundImage: `url(${backgroundImage})`, // Replace with your image URL
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          color: 'white',
+        }}
+      >
+        {/* Gradient Overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2), rgba(0,0,0,0.8))',
+            zIndex: 1,
+          }}
+        ></div>
+
+        {/* Text Content */}
+        <Container
+          className="text-center py-5"
+          style={{ position: 'relative', zIndex: 2, maxWidth: '60%' }}
+        >
+          <div className="d-flex justify-content-center gap-4">
+            {/* Clickable Text Options */}
+            <span
+              style={{
+                cursor: 'pointer',
+                fontWeight: 400,
+                fontSize: '1.2rem',
+                borderBottom: role === 'mentee' ? '2px solid #ffffff' : 'none',
+              }}
+              onClick={() => setRole('mentee')}
+            >
+              Mentee
+            </span>
+            <span
+              style={{
+                cursor: 'pointer',
+                fontWeight: 400,
+                fontSize: '1.2rem',
+                borderBottom: role === 'mentor' ? '2px solid #ffffff' : 'none',
+              }}
+              onClick={() => setRole('mentor')}
+            >
+              Mentor
+            </span>
+          </div>
           <div className="mt-4">
-            <a href="/signup" className="btn btn-lg btn-light mx-2">Sign Up</a>
-            <a href="/login" className="btn btn-lg btn-outline-light mx-2">Login</a>
+            {role === 'mentor' && (
+              <div>
+                <p
+                  className="text-info"
+                  style={{
+                    fontWeight: 700,
+                    fontSize: 'clamp(2rem, 5vw, 4rem)', // Dynamic font size
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Your next chapter, made possible by mentoring
+                </p>
+                <p
+                  style={{
+                    fontWeight: 300,
+                    fontSize: 'clamp(1rem, 3vw, 1.5rem)', // Dynamic font size
+                  }}
+                >
+                  Build confidence as a leader, grow your network, and define your legacy.
+                </p>
+              </div>
+            )}
+            {role === 'mentee' && (
+              <div>
+                <p
+                  className="text-info"
+                  style={{
+                    fontWeight: 700,
+                    fontSize: 'clamp(2rem, 5vw, 4rem)', // Dynamic font size
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Reach your goals faster with expert mentors
+                </p>
+                <p
+                  style={{
+                    fontWeight: 300,
+                    fontSize: 'clamp(1rem, 3vw, 1.5rem)', // Dynamic font size
+                  }}
+                >
+                  Accelerate your professional growth with 1:1 expert guidance of 30,691+ mentors in our community.
+                </p>
+              </div>
+            )}
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
-      {/* Features Section */}
-      {/* Features Section */}
-      <section className="features-section py-5">
-        <div className="container">
-          <h2 className="text-center mb-5">Key Features</h2>
-          <div className="row text-center">
-            <div className="col-md-3 mb-4">
-              <div className="card feature-card shadow-sm h-100">
-                <div className="card-body">
-                  <div className="feature-icon mb-3 text-primary">
-                    <i className="bi bi-person-check display-3"></i>
-                  </div>
-                  <h5 className="card-title">Personalized Recommendations</h5>
-                  <p className="card-text">Curated learning paths based on your interests and career goals.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card feature-card shadow-sm h-100">
-                <div className="card-body">
-                  <div className="feature-icon mb-3 text-success">
-                    <i className="bi bi-people display-3"></i>
-                  </div>
-                  <h5 className="card-title">Mentor Guidance</h5>
-                  <p className="card-text">Connect with industry experts for tailored career advice.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card feature-card shadow-sm h-100">
-                <div className="card-body">
-                  <div className="feature-icon mb-3 text-info">
-                    <i className="bi bi-graph-up display-3"></i>
-                  </div>
-                  <h5 className="card-title">Track Your Progress</h5>
-                  <p className="card-text">Monitor your course progress and stay on track.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mb-4">
-              <div className="card feature-card shadow-sm h-100">
-                <div className="card-body">
-                  <div className="feature-icon mb-3 text-warning">
-                    <i className="bi bi-journal-code display-3"></i>
-                  </div>
-                  <h5 className="card-title">Free Content</h5>
-                  <p className="card-text">Access top resources from platforms like Coursera, edX, and more.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Highlights Section */}
+      <div className="highlights-section">
+        <Container fluid className="py-5 px-5" style={{ backgroundColor: '#f8f9fa' }}>
+          <h1 className="text-center mb-5 mt-5" style={{ fontWeight: 700 }}>
+            A platform that delivers results
+          </h1>
+          <Row className="justify-content-center align-items-center mt-5">
+            <Col md={3} className="mb-4">
+              <Card style={{ height: '250px', border: 'none' }}>
+                <Card.Body className="d-flex justify-content-center align-items-center flex-column">
+                  <Card.Text className="text-center stylish-text">Career enhanced for</Card.Text>
+                  <Card.Text className="text-center large-title">89%</Card.Text>
+                  <Card.Text className="text-center subtext">Happy Members</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={3} className="mb-4">
+              <Card style={{ height: '250px', border: 'none' }}>
+                <Card.Body className="d-flex justify-content-center align-items-center flex-column">
+                  <Card.Text className="text-center stylish-text">Empowered by</Card.Text>
+                  <Card.Text className="text-center large-title">200k</Card.Text>
+                  <Card.Text className="text-center subtext">Expert Mentors</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={3} className="mb-4">
+              <Card style={{ height: '250px', border: 'none' }}>
+                <Card.Body className="d-flex justify-content-center align-items-center flex-column">
+                  <Card.Text className="text-center stylish-text">Global community from</Card.Text>
+                  <Card.Text className="text-center large-title">149</Card.Text>
+                  <Card.Text className="text-center subtext">Countries</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={3} className="mb-4">
+              <Card style={{ height: '250px', border: 'none' }}>
+                <Card.Body className="d-flex justify-content-center align-items-center flex-column">
+                  <Card.Text className="text-center stylish-text">We have built over</Card.Text>
+                  <Card.Text className="text-center large-title">20M+</Card.Text>
+                  <Card.Text className="text-center subtext">Connections</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
 
-      {/* Course Previews/Popular Courses */}
-      <section className="courses-section text-center py-5 bg-light">
-        <div className="container">
-          <h2 className="mb-4">Popular Courses</h2>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="course-card p-3 bg-white shadow-sm h-100">
-                <h5>Web Development Bootcamp</h5>
-                <p>Learn to build modern websites from scratch.</p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="course-card p-3 bg-white shadow-sm h-100">
-                <h5>Data Science Bootcamp</h5>
-                <p>Master data analysis and machine learning techniques.</p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="course-card p-3 bg-white shadow-sm h-100">
-                <h5>Soft Skills for Industry</h5>
-                <p>Boost your communication and teamwork skills.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials/Success Stories */}
+      {/* Testimonials Section */}
       <section className="testimonials-section text-center py-5">
         <div className="container">
           <h2 className="mb-4">What Our Users Say</h2>
@@ -127,15 +228,12 @@ const WelcomePage = () => {
         </div>
       </section>
 
-
-      {/* Footer */}
-      <footer className="footer bg-dark text-white text-center py-3">
+      {/* Footer Section */}
+      <footer className="footer bg-light text-black text-center py-3" style={{ backgroundColor: '#f8f9fa' }}>
         <div className="container">
           <p>© 2024 Your Platform. All rights reserved.</p>
-          <a href="/about" className="text-white mx-2">About Us</a>
-          <a href="/contact" className="text-white mx-2">Contact</a>
-          <a href="/terms" className="text-white mx-2">Terms of Service</a>
-          <a href="/privacy" className="text-white mx-2">Privacy Policy</a>
+          <a href="/about" className="text-black mx-2">About Us</a>
+          <a href="/contact" className="text-black mx-2">Contact</a>
         </div>
       </footer>
     </div>

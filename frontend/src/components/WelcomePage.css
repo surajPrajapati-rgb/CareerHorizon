@@ -1,68 +1,56 @@
-/* WelcomePage.css */
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(to right, #007bff, #00aaff);
-    color: white;
+.stylish-text {
+  font-family: 'Poppins', sans-serif; /* Example font, customize as needed */
+  font-size: 1.2rem; /* Adjust font size */
+}
+
+.large-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #9e3ec1;
+}
+
+.subtext {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.7rem;
+}
+
+/* src/components/WelcomePage.css */
+
+@media (max-width: 768px) {
+  .hero-section p {
+    font-size: 1.2rem !important; /* Smaller font size on small screens */
   }
-  
-  /* Key Features Section */
-  .features-section .feature-card {
-    background-color: white;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
+
+  .navbar-brand {
+    font-size: 1.5rem; /* Adjust brand size */
   }
-  
-  .features-section .feature-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 12px;
   }
-  
-  /* Testimonials Section */
-.testimonials-section .testimonial-card {
-    background-color: white;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .highlights-section .card {
+    margin-bottom: 15px;
   }
-  
-  .testimonials-section .testimonial-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+  .testimonials-section .col-md-4 {
+    margin-bottom: 20px;
   }
-  
-  
-  /* Courses Section */
-  .courses-section .course-card {
-    background-color: white;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .courses-section .course-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Footer Section */
-  .footer a {
-    color: #ddd;
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    color: #fff;
-  }
-  
-  /* General Card Styling for Consistency */
-.mentor-card, .course-card {
-  background-color: white;
+}
+
+
+.testimonial-card {
+  background-color: #f0f8ff;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-.mentor-card:hover, .course-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+.testimonial-card:hover {
+  transform: translateY(-10px);
 }
+
+
