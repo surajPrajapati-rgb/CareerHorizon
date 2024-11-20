@@ -25,4 +25,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('api/', include('ProfileSection.urls')),
     path('messaging/', include('messaging.urls')),
+    path('payment/', include('payment.urls')),
 ]
