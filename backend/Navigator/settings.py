@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta 
 
 import os
 from dotenv import load_dotenv
@@ -82,11 +83,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'Navigator.urls'
 
 LOGIN_URL = '/accounts/login/'
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.AllowAny',  # Temporarily allow all requests
-#     ],
-# }
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -100,16 +96,14 @@ REST_FRAMEWORK = {
     ],
 }
 
-
-from datetime import timedelta
-
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=12000),  # Default: 5 minutes
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),     # Default: 1 day
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+    'SLIDING_TOKEN_LIFETIME': timedelta(days=30),
+    'SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER': timedelta(days=1),
+    'SLIDING_TOKEN_LIFETIME_LATE_USER': timedelta(days=30),
 }
 
-# CSRF_COOKIE_SECURE = False  # Only for development
-# CSRF_COOKIE_HTTPONLY = False  # Only for development
 
 
 TEMPLATES = [

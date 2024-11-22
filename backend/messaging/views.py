@@ -107,7 +107,6 @@ def create_message(request):
         return Response({'status': 'error', 'message': str(e)}, status=500)
 
 
-
 @api_view(['GET'])
 def sent_messages(request):
     try:
@@ -150,9 +149,7 @@ def received_messages(request):
         return Response({'status': 'error', 'message': str(e)}, status=500)
 
 
-
 @api_view(['GET'])
-# @permission_classes([IsAuthenticated]) 
 def message_detail(request, message_id):
     message = get_object_or_404(Message, id=message_id)
     print(f"Request User: {request.user.username}")
