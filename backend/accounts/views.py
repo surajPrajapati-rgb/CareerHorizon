@@ -75,7 +75,6 @@ def logout(request):
     else:
         return Response({"error": "Not logged in"}, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['POST'])
 def signup_view(request):
     email = request.data.get('email')

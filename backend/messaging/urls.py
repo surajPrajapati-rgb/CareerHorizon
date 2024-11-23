@@ -1,9 +1,3 @@
-# from django.urls import path
-# from .views import ChatHistoryView
-
-# urlpatterns = [
-#     path('chat/<str:room_name>/', ChatHistoryView.as_view(), name='chat_history'),
-# ]
 
 from django.urls import path
 from . import views
