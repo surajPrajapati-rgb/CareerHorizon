@@ -1,6 +1,8 @@
 .chatPageContainer {
     display: flex;
+    margin-top: 80px;
     height: 100vh;
+    
   }
   
   .userList {

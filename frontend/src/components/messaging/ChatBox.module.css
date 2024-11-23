@@ -1,8 +1,8 @@
 /* Chat container */
 .chatContainer {
   display: flex;
-  flex-direction: row;
-  height: 100vh;
+  flex-direction: column;
+  height: 90vh;
   background-color: #f4f4f9;
   font-family: Arial, sans-serif;
 }
@@ -44,14 +44,15 @@
 /* Chat messages */
 .messageList {
   flex: 1;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow-y: auto;
+  /* overflow-y: auto; */
+  height: 90vh;
   background-color: #ecf0f1;
   border-left: 1px solid #bdc3c7;
-  margin: 300px;
+  margin: 100px;
 }
 
 .sentMessage,
@@ -93,6 +94,7 @@
   padding: 15px;
   background-color: #ffffff;
   border-top: 1px solid #bdc3c7;
+  align-items: center;
 }
 
 .messageInput input {
@@ -102,6 +104,7 @@
   border-radius: 5px;
   font-size: 14px;
   margin-right: 10px;
+  background-color: #1abc9c;
 }
 
 .messageInput button {

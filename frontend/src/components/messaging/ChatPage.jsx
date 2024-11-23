@@ -5,9 +5,9 @@ import axios from 'axios';
 import styles from './ChatPage.module.css';
 
 const ChatPage = () => {
-  const { user } = useContext(UserContext); // Fetch user details from UserContext
-  const [chatUsers, setChatUsers] = useState([]); // Store the list of chat users
-  const [selectedUser, setSelectedUser] = useState(null); // Currently selected user
+  const { user } = useContext(UserContext); 
+  const [chatUsers, setChatUsers] = useState([]); 
+  const [selectedUser, setSelectedUser] = useState(null); 
 
   useEffect(() => {
     const fetchChatUsers = async () => {
@@ -60,7 +60,6 @@ const ChatPage = () => {
       <div className={styles.chatContent}>
         {selectedUser ? (
           <>
-            <h1>Chat with {selectedUser}</h1>
             <ChatBox otherUser={selectedUser} />
           </>
         ) : (

@@ -45,7 +45,6 @@ const ChatBox = ({ otherUser }) => {
     fetchMessages();
   }, [otherUser, user]);
 
-  // Fetch chat users
   useEffect(() => {
     const fetchChatUsers = async () => {
       if (!user?.token) {
@@ -113,7 +112,7 @@ const ChatBox = ({ otherUser }) => {
     <div className={styles.chatContainer}>
       <h1>Chat with {otherUser}</h1>
 
-      {/* Chat User List */}
+      {/* Chat User List
       <div className={styles.chatUserList}>
         <h2>Your Chats</h2>
         <ul>
@@ -123,7 +122,7 @@ const ChatBox = ({ otherUser }) => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* Message List */}
       <div className={styles.messageList}>
