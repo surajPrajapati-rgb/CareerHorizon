@@ -1,0 +1,39 @@
+name: Backend Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10  # Change to the Python version your backend requires
+
+      # Install Backend Dependencies
+      - name: Install Backend Dependencies
+        working-directory: ./backend  # Navigate to backend directory
+        run: |
+          python -m venv virtualenv
+          source virtualenv/bin/activate
+          pip install -r requirements.txt
+
+      # Run Backend Tests
+      - name: Run Backend Tests
+        working-directory: ./backend  # Navigate to backend directory
+        run: |
+          source virtualenv/bin/activate
+          pytest -v
