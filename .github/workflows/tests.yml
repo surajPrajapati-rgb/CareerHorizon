@@ -21,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10  # Change to the Python version your backend requires
+          python-version: 3.11  # Change to the Python version your backend requires
 
       # Install Backend Dependencies
       - name: Install Backend Dependencies
