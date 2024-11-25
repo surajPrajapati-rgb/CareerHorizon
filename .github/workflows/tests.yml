@@ -11,6 +11,14 @@ on:
 jobs:
   test-backend:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: mysql23
+          MYSQL_DATABASE: ch-dev-db
+        ports:
+          - 3306:3306
 
     steps:
       # Checkout the code
