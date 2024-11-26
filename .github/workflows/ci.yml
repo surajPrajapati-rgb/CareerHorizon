@@ -56,5 +56,5 @@ jobs:
       - name: Run Tests
         env:
           DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com/careerhorizon
-          DJANGO_SETTINGS_MODULE: backend/Navigator.settings
+          DJANGO_SETTINGS_MODULE: backend.settings
         run: pytest
