@@ -34,7 +34,7 @@ jobs:
 
       - name: Wait for PostgreSQL
         env:
-          PSQL_HOST: dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com
+          PSQL_HOST: dpg-ct2oj0pu0jms738u00rg-a
           PSQL_PORT: 5432
           PSQL_USER: careerhorizon_user
           PSQL_PASSWORD: SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa
