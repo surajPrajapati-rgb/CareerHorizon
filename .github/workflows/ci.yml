@@ -43,10 +43,10 @@ jobs:
 
       - name: Apply migrations
         env:
-          DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a/careerhorizon
+          DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com/careerhorizon
         run: python backend/manage.py migrate
 
       - name: Run Tests
         env:
-          DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a/careerhorizon
+          DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com/careerhorizon
         run: pytest
