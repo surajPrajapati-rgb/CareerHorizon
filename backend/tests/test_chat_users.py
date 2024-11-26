@@ -31,7 +31,7 @@ def test_chat_users(api_client, create_users, create_messages):
     api_client.force_authenticate(user=user1)
 
     # Act: Call the chat_users endpoint
-    response = api_client.get('messaging/chat_users/', {'sender': user1.username})
+    response = api_client.get('/messaging/chat_users/', {'sender': user1.username})
 
     # Assert: Verify response
     assert response.status_code == 200
@@ -47,7 +47,7 @@ def test_chat_users_no_communication(api_client, create_users):
     api_client.force_authenticate(user=user3)
 
     # Act: Call the chat_users endpoint for a user with no communication
-    response = api_client.get('messaging/chat_users/', {'sender': user3.username})
+    response = api_client.get('/messaging/chat_users/', {'sender': user3.username})
 
     # Assert: Verify response
     assert response.status_code == 200
