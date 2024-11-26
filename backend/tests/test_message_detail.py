@@ -24,7 +24,7 @@ def test_message_detail_get(api_client):
     api_client.force_authenticate(user=sender)
 
     # Test: Fetch message details
-    response = api_client.get(f'http://localhost:8000/messaging/message/{message.id}/')
+    response = api_client.get(f'https://careerhorizon-vfpx.onrender.com/messaging/message/{message.id}/')
     assert response.status_code == status.HTTP_200_OK
 
     # Compare the response data without 'timestamp'
@@ -59,7 +59,7 @@ def test_message_detail_update(api_client):
 
     # Test: Update message content
     updated_content = {'content': "Updated message content"}
-    response = api_client.put(f'http://localhost:8000/messaging/message/{message.id}/', updated_content, format='json')
+    response = api_client.put(f'https://careerhorizon-vfpx.onrender.com/messaging/message/{message.id}/', updated_content, format='json')
     assert response.status_code == status.HTTP_200_OK
     message.refresh_from_db()
     assert message.content == updated_content['content']
@@ -81,7 +81,7 @@ def test_message_detail_delete(api_client):
     api_client.force_authenticate(user=sender)
 
     # Test: Delete message
-    response = api_client.delete(f'http://localhost:8000/messaging/message/{message.id}/')
+    response = api_client.delete(f'https://careerhorizon-vfpx.onrender.com/messaging/message/{message.id}/')
     assert response.status_code == status.HTTP_200_OK
     assert not Message.objects.filter(id=message.id).exists()
 
