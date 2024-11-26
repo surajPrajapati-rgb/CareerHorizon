@@ -1,4 +1,4 @@
-name: Django CI
+name: CI
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
           PSQL_USER: careerhorizon_user
           PSQL_PASSWORD: SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa
         run: |
-          until PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER -c "SELECT 1"; do
+          until PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER -c "CREATE DATABASE careerhorizon_user"; do
             echo "Waiting for PostgreSQL to be ready..."
             sleep 5
           done
