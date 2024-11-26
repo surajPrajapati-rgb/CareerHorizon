@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './NavBar.css'; 
+import LogoutButton from './Logout';
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove the token from localStorage
+    navigate('/login'); // Redirect to the login page
   };
 
   return (
@@ -23,11 +31,12 @@ function NavBar() {
       {/* Links visible depending on screen size or when menu is open */}
       <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
         <Link to="/home" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/explore" onClick={() => setMenuOpen(false)}>Explore Career</Link>
         <Link to="/mentors" onClick={() => setMenuOpen(false)}>Mentor</Link>
-        <Link to="/courses" onClick={() => setMenuOpen(false)}>Courses</Link>
         <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <button onClick={handleLogout} className="btn btn-danger">
+      Logout
+    </button>
       </div>
 
       <div className="navbar-profile">
