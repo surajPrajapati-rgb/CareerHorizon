@@ -9,7 +9,7 @@ const MentorList = () => {
   useEffect(() => {
     const fetchMentors = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/mentor/");
+        const response = await axios.get("https://careerhorizon-vfpx.onrender.com/api/mentor/");
         const mentorData = response.data.data;
 
         // Shuffle the mentorData array to display in random order

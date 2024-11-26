@@ -16,7 +16,7 @@ const SignupPage = () => {
 
     try {
         // Make the API call to sign up
-        const response = await fetch('http://localhost:8000/accounts/signup/', {
+        const response = await fetch('https://careerhorizon-vfpx.onrender.com/accounts/signup/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, password }),

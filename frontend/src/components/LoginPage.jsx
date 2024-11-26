@@ -22,7 +22,7 @@ const LoginPage = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8000/accounts/login/', {
+      const response = await fetch('https://careerhorizon-vfpx.onrender.com/accounts/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
