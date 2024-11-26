@@ -85,7 +85,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React app (local development)
+    "https://celadon-maamoul-63bd57.netlify.app",  # React app (production)
+]
 
 
 ROOT_URLCONF = 'Navigator.urls'
