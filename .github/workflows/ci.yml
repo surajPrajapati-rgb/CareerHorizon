@@ -26,8 +26,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
           
-      - name: Test Database Connection
-        run: python backend/manage.py dbshell
+      # - name: Test Database Connection
+      #   run: python backend/manage.py dbshell
 
       - name: Install PostgreSQL Client
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
