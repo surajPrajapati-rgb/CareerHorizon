@@ -29,7 +29,7 @@ def test_chat_history(api_client, create_users, create_messages):
     api_client.force_authenticate(user=user1)
 
     # Act: Call the chat_history endpoint
-    response = api_client.get(f'messaging/chat/{user2.username}/', {'sender': user1.username})
+    response = api_client.get(f'/messaging/chat/{user2.username}/', {'sender': user1.username})
 
     # Assert: Verify response
     assert response.status_code == 200
@@ -48,7 +48,7 @@ def test_chat_history_user_not_found(api_client, create_users):
     api_client.force_authenticate(user=user1)
 
     # Act: Call the chat_history endpoint with a non-existent user
-    response = api_client.get('messaging/chat/nonexistent_user/', {'sender': user1.username})
+    response = api_client.get('/messaging/chat/nonexistent_user/', {'sender': user1.username})
 
     # Assert: Verify 404 response
     assert response.status_code == 404
@@ -62,7 +62,7 @@ def test_chat_history_missing_sender(api_client, create_users):
     api_client.force_authenticate(user=user2)
 
     # Act: Call the chat_history endpoint without a sender query parameter
-    response = api_client.get(f'messaging/chat/{user2.username}/')
+    response = api_client.get(f'/messaging/chat/{user2.username}/')
 
     # Assert: Verify 400 response
     assert response.status_code == 400
