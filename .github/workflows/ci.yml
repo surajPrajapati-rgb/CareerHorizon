@@ -25,6 +25,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
+          
+      - name: Test Database Connection
+        run: python backend/manage.py dbshell
 
       - name: Install PostgreSQL Client
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
@@ -36,7 +39,7 @@ jobs:
           PSQL_USER: careerhorizon_user
           PSQL_PASSWORD: SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa
         run: |
-          until PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER -c "CREATE DATABASE careerhorizon_user"; do
+          until PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER -c "select 1"; do
             echo "Waiting for PostgreSQL to be ready..."
             sleep 5
           done
@@ -44,7 +47,9 @@ jobs:
       - name: Apply migrations
         env:
           DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com/careerhorizon
-        run: python backend/manage.py migrate
+        run: |
+          python backend/manage.py makemigrations
+          python backend/manage.py migrate
 
       - name: Run Tests
         env:
