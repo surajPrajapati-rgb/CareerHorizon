@@ -34,15 +34,17 @@ jobs:
 
       - name: Wait for PostgreSQL
         env:
-          PSQL_HOST: dpg-ct2oj0pu0jms738u00rg-a
+          PSQL_HOST: dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com
           PSQL_PORT: 5432
           PSQL_USER: careerhorizon_user
           PSQL_PASSWORD: SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa
+          PSQL_DB: careerhorizon
         run: |
-          until PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER -c "select 1"; do
+          until PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER -d $PSQL_DB -c "SELECT 1"; do
             echo "Waiting for PostgreSQL to be ready..."
             sleep 5
           done
+
 
       - name: Apply migrations
         env:
