@@ -31,7 +31,8 @@ SECRET_KEY = 'django-insecure-2v86tfc(f7h(==fns1tru7@z($bw98g+=v(hb^$m!l3p!qb@t_
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'careerhorizon-vfpx.onrender.com'
+    'testserver', 
+    'careerhorizon-vfpx.onrender.com',
 ]
 
 SECURE_SSL_REDIRECT = True
