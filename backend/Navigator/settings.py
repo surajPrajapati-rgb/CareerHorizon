@@ -31,8 +31,13 @@ SECRET_KEY = 'django-insecure-2v86tfc(f7h(==fns1tru7@z($bw98g+=v(hb^$m!l3p!qb@t_
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'https://careerhorizon-vfpx.onrender.com'
+    'careerhorizon-vfpx.onrender.com'
 ]
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 # Channels Configuration
 ASGI_APPLICATION = 'Navigator.asgi.application'
 WSGI_APPLICATION = 'Navigator.wsgi.application'
