@@ -28,9 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2v86tfc(f7h(==fns1tru7@z($bw98g+=v(hb^$m!l3p!qb@t_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://careerhorizon-vfpx.onrender.com'
+]
 # Channels Configuration
 ASGI_APPLICATION = 'Navigator.asgi.application'
 WSGI_APPLICATION = 'Navigator.wsgi.application'
@@ -144,20 +146,20 @@ WSGI_APPLICATION = 'Navigator.wsgi.application'
 
 
 
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
-}
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST'), 
-#         'PORT': os.getenv('DB_PORT'),
-#     }
+#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 # }
+
+DATABASES = {
+    'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'), 
+        'PORT': os.getenv('DB_PORT'),
+    }
+}
 
 
 # Password validation
