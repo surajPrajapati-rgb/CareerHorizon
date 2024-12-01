@@ -13,6 +13,8 @@ const HomePage = () => {
             <a href="/courses" className="btn btn-lg btn-light mx-2">Explore Courses</a>
             <a href="/mentors" className="btn btn-lg btn-outline-light mx-2">Find a Mentor</a>
             <a href="/chat" className="btn btn-lg btn-outline-light mx-2">Chat</a>
+            <a href="/edit_profile" className="btn btn-lg btn-outline-light mx-2">Edit Profile</a>
+            <a href="/get_profile" className="btn btn-lg btn-outline-light mx-2">Get Profile</a>
           </div>
         </div>
       </section>

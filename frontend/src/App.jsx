@@ -4,7 +4,7 @@ import WelcomePage from './components/WelcomePage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import HomePage from './components/HomePage';
-import ProfilePage from './components/ProfilePage';
+// import ProfilePage from './components/ProfilePage';
 import Logout from './components/Logout';
 import NavBar from './components/NavBar';
 import MentorPage from './components/MentorPage';
@@ -19,6 +19,8 @@ import MentorList from './components/MentorList';
 import ChatBox from './components/messaging/ChatBox';
 import ChatPage from './components/messaging/ChatPage';
 import { UserProvider } from './context/UserContext';
+import UserProfileForm from './components/UserProfileForm';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -41,7 +43,8 @@ function App() {
               <Routes>
                 <Route path="home" element={<HomePage />} />
                 {/* <Route path="profile/:user_id" element={<ProfilePage />} /> */}
-                <Route path="profile/" element={<ProfilePage />} />
+                <Route path="get_profile/" element={<UserProfile />} />
+                <Route path="edit_profile/" element={<UserProfileForm />} />
                 <Route path="mentors" element={<MentorList/>} />
                 <Route path="mentors/:mentorId" element={<MentorProfile />} />
                 <Route path="explore/" element={<CareerExplorer />} />

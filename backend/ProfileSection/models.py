@@ -30,10 +30,13 @@ class Profile(models.Model):
     headline = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     country = models.CharField(max_length=100, blank=True, null=True)
-    
-    # Images
-    profile_photo = models.ImageField(upload_to='ProfileSection/media/profile_photos/', blank=True, null=True)
-    background_image = models.ImageField(upload_to='ProfileSection/media/background_images/', blank=True, null=True)
+
+    profile_photo = models.ImageField(upload_to='media/profile_photos/', blank=True, null=True)
+    background_image = models.ImageField(upload_to='media/background_images/', blank=True, null=True)
+
+    # # Images
+    # profile_photo = models.ImageField(upload_to='ProfileSection/media/profile_photos/', blank=True, null=True)
+    # background_image = models.ImageField(upload_to='ProfileSection/media/background_images/', blank=True, null=True)
 
     # Timestamps
     created_at = models.DateTimeField(default=timezone.now)
