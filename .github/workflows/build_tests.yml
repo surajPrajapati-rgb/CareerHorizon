@@ -21,4 +21,4 @@ jobs:
 
     - name: Install dependencies
       working-directory: ./backend 
-      run: ./setup.sh
+      run: ./build.sh
