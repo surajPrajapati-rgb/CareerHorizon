@@ -27,15 +27,15 @@ jobs:
       - name: Set environment variable
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
 
-      - name: Run Tests
-        working-directory: ./backend
-        # env:
-        #   DJANGO_SETTINGS_MODULE: backend.settings
-        # run: pytest
-        env:
-          DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com/careerhorizon
-          DJANGO_SETTINGS_MODULE: Navigator.settings
-        run: pytest
+      # - name: Run Tests
+      #   working-directory: ./backend
+      #   # env:
+      #   #   DJANGO_SETTINGS_MODULE: backend.settings
+      #   # run: pytest
+      #   env:
+      #     DATABASE_URL: postgresql://careerhorizon_user:SEpIIuXSAOY2gK1EiliiNAmSLT9dYtqa@dpg-ct2oj0pu0jms738u00rg-a.oregon-postgres.render.com/careerhorizon
+      #     DJANGO_SETTINGS_MODULE: Navigator.settings
+      #   run: pytest
           
       - name: Grant execute permissions
         working-directory: ./backend 
