@@ -16,7 +16,7 @@ const ChatPage = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8000/messaging/chat_users/', {
+        const response = await axios.get('https://careerhorizon-vfpx.onrender.com/messaging/chat_users/', {
           params: {
             sender: user.email, // Fetch chat users for the current user
           },
