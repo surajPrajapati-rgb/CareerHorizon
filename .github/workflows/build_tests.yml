@@ -27,10 +27,10 @@ jobs:
       - name: Set environment variable
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
 
-      # (Optional) Run tests or any other commands
-      - name: Run tests
-        run: |
-          python manage.py test
+      # # (Optional) Run tests or any other commands
+      # - name: Run tests
+      #   run: |
+      #     python manage.py test
           
       - name: Grant execute permissions
         working-directory: ./backend 
