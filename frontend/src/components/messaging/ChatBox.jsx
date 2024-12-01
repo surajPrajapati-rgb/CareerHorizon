@@ -14,7 +14,7 @@ const ChatBox = ({ otherUser }) => {
       if (!user?.email || !otherUser) return;
 
       try {
-        const response = await axios.get(`http://localhost:8000/messaging/chat/${otherUser}/`, {
+        const response = await axios.get(`https://careerhorizon-vfpx.onrender.com/messaging/chat/${otherUser}/`, {
           params: { sender: user.email }, // Pass the sender email as a query parameter
         });
 
@@ -92,7 +92,7 @@ const ChatBox = ({ otherUser }) => {
   }
 
   try {
-    await axios.post('http://localhost:8000/messaging/create/', {
+    await axios.post('https://careerhorizon-vfpx.onrender.com/messaging/create/', {
       recipient: otherUser,
       content: newMessage.trim(),
       sender: user.email,
@@ -103,7 +103,7 @@ const ChatBox = ({ otherUser }) => {
   }
 
   try {
-    await axios.post('http://localhost:8000/messaging/create/', {
+    await axios.post('https://careerhorizon-vfpx.onrender.com/messaging/create/', {
       recipient: user.email,
       content: newMessage.trim(),
       sender: otherUser,
