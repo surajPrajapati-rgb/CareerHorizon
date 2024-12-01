@@ -1,190 +1,75 @@
-/* .mentor-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px; 
-  padding: 20px;
-  justify-content: center;
-  margin-top: 80px;
-}
+/* MentorCard.css */
 
+/* Container for the mentor card */
 .mentor-card {
   border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 20px;
-  width: 250px; 
-  height: 360px; 
-  background-color: #f8f8f8;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.mentor-card img {
-  width: 100%;
-  height: 150px; 
-  object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 16px;
-}
-
-.mentor-card h2 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 12px;
-}
-
-.mentor-card p {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 8px 0;
-}
-
-.mentor-card h3 {
-  font-size: 1rem;
-  color: #444;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-.mentor-card ul {
-  list-style: none;
-  padding: 0;
-  font-size: 0.9rem;
-}
-
-.mentor-card li {
-  color: #666;
-  margin: 4px 0;
-}
-
-.mentor-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-}
-
-@media (max-width: 1024px) {
-  .mentor-card {
-    width: calc(33.33% - 32px);
-  }
-}
-
-@media (max-width: 768px) {
-  .mentor-card {
-    width: calc(50% - 32px); 
-  }
-}
-
-@media (max-width: 480px) {
-  .mentor-card {
-    width: 100%; 
-  }
-} */
-
-/* Container for the mentor cards */
-.mentor-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 20px;
-  justify-content: center;
-  margin-top: 80px;
-}
-
-/* Card styling */
-.mentor-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 20px;
-  width: 260px; /* Slightly larger card width */
-  height: auto; /* Let content define height */
-  background-color: #ffffff; /* Lighter background for a fresh feel */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  text-align: center; /* Center align content */
+  text-align: center;
 }
 
-/* Image styling */
+.mentor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
 .mentor-card img {
   width: 100%;
-  height: 180px; /* Increase image height for a stronger visual presence */
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 16px;
-  border: 3px solid #f0f0f0; /* Add a subtle border around the image */
 }
 
-/* Title styling */
 .mentor-card h2 {
-  font-size: 1.4rem;
-  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.mentor-card .mentor-details {
+  font-size: 0.875rem;
+  color: #4a4a4a;
   margin-bottom: 12px;
-  font-weight: 600; /* Stronger emphasis on the name */
-  letter-spacing: 0.5px;
 }
 
-/* Description text styling */
-.mentor-card p {
-  font-size: 1rem;
-  color: #555;
-  margin: 8px 0;
-  line-height: 1.6;
-}
-
-/* Role styling */
-.mentor-card h3 {
-  font-size: 1.1rem;
-  color: #444;
-  margin-top: 10px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.8px; /* Slight letter spacing for a refined look */
-}
-
-/* List styling */
-.mentor-card ul {
-  list-style: none;
-  padding: 0;
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 12px;
-}
-
-.mentor-card li {
+.mentor-card .mentor-details p {
   margin: 4px 0;
-  font-weight: 400;
 }
 
-/* Hover effect */
-.mentor-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger hover shadow */
-  cursor: pointer;
+.mentor-card .mentor-bio {
+  font-size: 0.875rem;
+  color: #757575;
+  margin-bottom: 16px;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .mentor-card {
-    width: calc(33.33% - 32px);
-  }
+.mentor-card a {
+  background-color: #1d72b8;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .mentor-card {
-    width: calc(50% - 32px);
-  }
+.mentor-card a:hover {
+  background-color: #155d8c;
 }
 
-@media (max-width: 480px) {
-  .mentor-card {
-    width: 100%; /* Full-width on mobile */
-  }
+.mentor-card .mentor-rate {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1d72b8;
+  margin-bottom: 16px;
 }
-
