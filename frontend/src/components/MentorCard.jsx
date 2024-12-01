@@ -1,21 +1,24 @@
-// MentorCard.jsx
-import React from "react";
-import './MentorCard.css'; // Import your CSS for styling
+// MentorCard.js
+import React from 'react';
+import './MentorCard.css'; // Import the CSS file
 
 const MentorCard = ({ mentor }) => {
-  const { experience_years, hourly_rate, industry, categories, reviews, skills, mentor_photo } = mentor;
-
   return (
-      console.log(mentor),
-    <div className="mentor-card">
-      <img src={mentor_photo} alt="Image" />
+    <div key={mentor.mentor_id} className="mentor-card">
+      <img 
+        src={mentor.mentor_image_url} 
+        alt={mentor.mentor_name} 
+      />
       <h2>{mentor.mentor_name}</h2>
-      {industry}
-      {reviews.length > 0 ? (
-        <p>({reviews.length} reviews)</p>
-      ) : (
-        <p>0 reviews</p>
-      )}
+      <div className="mentor-details">
+        <p>Experience: {mentor.experience_years} years</p>
+        <p>Education: {mentor.education}</p>
+      </div>
+      <p className="mentor-bio">{mentor.bio}</p>
+      <div className="mentor-rate">Hourly Rate: ${mentor.hourly_rate}</div>
+      <a href={mentor.linkedin_url} target="_blank" rel="noopener noreferrer">
+        View LinkedIn
+      </a>
     </div>
   );
 };

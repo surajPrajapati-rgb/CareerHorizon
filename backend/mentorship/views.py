@@ -25,11 +25,42 @@ class MentorViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(mentor)
         return Response(serializer.data)
     
-    def list(self,request):   
-        mentor = Mentor.objects.all()
-        serializer = MentorSerializer(mentor,many = True,context = {"request":request})
-        response_dict = {"error":False,"message":"All mentor List data","data":serializer.data}
-        return Response(response_dict)
+    # def list(self,request):   
+    #     mentor = Mentor.objects.all()
+    #     serializer = MentorSerializer(mentor,many = True,context = {"request":request})
+    #     response_dict = {"error":False,"message":"All mentor List data","data":serializer.data}
+    #     return Response(response_dict)
+    
+    def list(self, request):
+        # Fetch all mentors
+        mentors = Mentor.objects.all()
+
+        # Serialize the mentor data
+        # Make sure to include the required fields in the serializer
+        serializer = MentorSerializer(mentors, many=True, context={"request": request})
+
+        # Prepare the response data in the desired format
+        response_data = {
+            "error": False,
+            "message": "All mentor list data",
+            "data": [
+                {
+                    "mentor_id": mentor.id,
+                    "mentor_image_url": mentor.mentor_image_url,
+                    "mentor_name": mentor.mentor_name,
+                    "experience_years": mentor.experience_years,
+                    "education": mentor.education,
+                    "bio": mentor.bio,
+                    "hourly_rate": mentor.hourly_rate,
+                    "linkedin_url": mentor.linkedin_url
+                }
+                for mentor in mentors
+            ]
+        }
+
+        # Return the response with the data
+        return Response(response_data)
+
 
     def create(self, request):
         try:
@@ -98,3 +129,36 @@ def filter_mentors_by_category(request, category_id):
     
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    
+@api_view(['GET'])
+def allMentor(request):
+    # Fetch all mentors
+    mentors = Mentor.objects.all()
+
+    # Serialize the mentor data
+    # Make sure to include the required fields in the serializer
+    serializer = MentorSerializer(mentors, many=True, context={"request": request})
+
+    # Prepare the response data in the desired format
+    response_data = {
+        "error": False,
+        "message": "All mentor list data",
+        "mentors": [
+            {
+                "mentor_id": mentor.mentor_id,
+                "mentor_image_url": mentor.mentor_image_url,
+                "mentor_name": mentor.mentor_name,
+                "experience_years": mentor.experience_years,
+                "education": mentor.education,
+                "bio": mentor.bio,
+                "hourly_rate": mentor.hourly_rate,
+                "linkedin_url": mentor.linkedin_url
+            }
+            for mentor in mentors
+        ]
+    }
+        
+    # Return the response with the data
+    return Response(response_data)
+    

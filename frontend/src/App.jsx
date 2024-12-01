@@ -21,6 +21,7 @@ import ChatPage from './components/messaging/ChatPage';
 import { UserProvider } from './context/UserContext';
 import UserProfileForm from './components/UserProfileForm';
 import UserProfile from './components/UserProfile';
+import MentorCategoryFilter from './components/MentorCategoryFilter';
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
                 {/* <Route path="profile/:user_id" element={<ProfilePage />} /> */}
                 <Route path="get_profile/" element={<UserProfile />} />
                 <Route path="edit_profile/" element={<UserProfileForm />} />
-                <Route path="mentors" element={<MentorList/>} />
+                <Route path="mentors" element={<MentorCategoryFilter/>} />
                 <Route path="mentors/:mentorId" element={<MentorProfile />} />
                 <Route path="explore/" element={<CareerExplorer />} />
                 <Route path="career-path/" element={<BackendDeveloper />} />

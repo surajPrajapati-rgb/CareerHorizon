@@ -28,16 +28,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2v86tfc(f7h(==fns1tru7@z($bw98g+=v(hb^$m!l3p!qb@t_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'testserver', 
     'careerhorizon-vfpx.onrender.com',
+    '127.0.0.1',
 ]
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 # Channels Configuration
 ASGI_APPLICATION = 'Navigator.asgi.application'
