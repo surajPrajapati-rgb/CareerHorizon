@@ -9,23 +9,33 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up environment variables
-      run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+      # Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
 
-    - name: Grant execute permissions
-      working-directory: ./backend 
-      run: chmod +x ./build.sh
+      # Set environment variable for the DATABASE_URL
+      - name: Set environment variable
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.11'
+      # (Optional) Run tests or any other commands
+      - name: Run tests
+        run: |
+          python manage.py test
+          
+      - name: Grant execute permissions
+        working-directory: ./backend 
+        run: chmod +x ./build.sh
 
-    - name: Install dependencies
-      working-directory: ./backend 
-      run: ./build.sh
+      - name: Install dependencies
+        working-directory: ./backend 
+        run: ./build.sh
