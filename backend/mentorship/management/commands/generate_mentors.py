@@ -2,8 +2,12 @@ from django.core.management.base import BaseCommand
 from faker import Faker
 from mentorship.models import (
     Mentor, MentorSkill, MentorCategory, MentorAvailability,
-    Review, Message, Session, Payment
+    Review, Session, Payment
 )
+
+from messaging.models import Message
+
+
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
 from django.utils import timezone
@@ -32,13 +36,13 @@ class Command(BaseCommand):
                 end_time=time(end_hour, 0)
             )
 
-    def create_messages(self, fake, mentor_user, mentee_user):
-        for _ in range(random.randint(1, 5)):
-            Message.objects.create(
-                sender=random.choice([mentor_user, mentee_user]),
-                receiver=mentee_user if random.choice([mentor_user, mentee_user]) == mentor_user else mentor_user,
-                content=fake.paragraph()
-            )
+    # def create_messages(self, fake, mentor_user, mentee_user):
+    #     for _ in range(random.randint(1, 5)):
+    #         Message.objects.create(
+    #             sender=random.choice([mentor_user, mentee_user]),
+    #             receiver=mentee_user if random.choice([mentor_user, mentee_user]) == mentor_user else mentor_user,
+    #             content=fake.paragraph()
+    #         )
 
     def create_session(self, fake, mentor, mentee):
         future_date = timezone.now() + timedelta(days=random.randint(1, 30))
@@ -150,7 +154,7 @@ class Command(BaseCommand):
                 # Create sessions, reviews, and payments with random mentees
                 for mentee in random.sample(mentees, random.randint(1, 3)):
                     # Create messages
-                    self.create_messages(fake, mentor_user, mentee)
+                    # self.create_messages(fake, mentor_user, mentee)
 
                     # Create session
                     session = self.create_session(fake, mentor, mentee)
