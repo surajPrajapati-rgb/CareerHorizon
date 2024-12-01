@@ -15,7 +15,10 @@ class Mentor(models.Model):
     bio = models.TextField(default="No bio provided")
     experience_years = models.IntegerField(default=0)
     hourly_rate = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
-    industry = models.CharField(max_length=100)
+    
+    # ForeignKey with MentorCategory
+    categories_id = models.ForeignKey('MentorCategory', on_delete=models.CASCADE, null=True, blank=True, related_name='mentors')
+
     linkedin_url = models.URLField(max_length=255, null=True, blank=True)
     education = models.CharField(max_length=255, default='Not specified')  # Set a default value
 
@@ -51,16 +54,14 @@ class MentorAvailability(models.Model):
     
 
 class MentorCategory(models.Model):
-
     class Meta:
         db_table = 'MentorCategory'
 
     mentor_category_id = models.AutoField(primary_key=True)
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,related_name='categories')  
-    category_name = models.CharField(max_length=100, default=1)  # Default value for category name
+    category_name = models.CharField(max_length=100, default="General")  # Renamed to make it meaningful
 
     def __str__(self):
-        return f"{self.mentor.user.username} - {self.category_name}"
+        return self.category_name
 
 
 
