@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MentorCard from "./MentorCard";
+import CategoryBar from "./CategoryBar";
 
 
 const MentorList = () => {
@@ -26,6 +27,7 @@ const MentorList = () => {
 
   return (
     <div className="mentor-list">
+      <CategoryBar/>
       {mentors.map((mentor) => (
         <MentorCard key={mentor.mentor_id} mentor={mentor} />
       ))}
