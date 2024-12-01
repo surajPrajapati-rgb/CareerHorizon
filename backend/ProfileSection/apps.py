@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
-class ProfileSectionConfig(AppConfig):
+class YourAppNameConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ProfileSection'  # Make sure this matches the folder name of your app
+    name = 'ProfileSection'
 
     def ready(self):
-        import ProfileSection.signals  # Register the signals
+        import ProfileSection.signals

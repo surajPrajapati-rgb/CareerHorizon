@@ -26,7 +26,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include('mentorship.urls')), # Include mentorship URLs
     path('accounts/', include('accounts.urls')),
-    path('api/', include('ProfileSection.urls')),
+    path('user_profile/', include('ProfileSection.urls')),
     path('messaging/', include('messaging.urls')),
     path('payment/', include('payment.urls')),
 ]

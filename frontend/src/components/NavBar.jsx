@@ -40,7 +40,7 @@ function NavBar() {
       </div>
 
       <div className="navbar-profile">
-        <Link to="/profile/">
+        <Link to="/get_profile/">
           <img src="/public/image.png" alt="Profile" className="profile-icon" />
         </Link>
       </div>
