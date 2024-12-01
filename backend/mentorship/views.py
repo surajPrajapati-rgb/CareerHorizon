@@ -74,12 +74,12 @@ class MentorCategoryView(APIView):
 @api_view(['GET'])
 def filter_mentors_by_category(request, category_id):
     try:
-        # Get the category by ID
-        category = MentorCategory.objects.get(mentor_category_id=category_id)
+        # Fetch mentors associated with the given category_id
+        mentors = Mentor.objects.filter(categories_id=category_id)
+        if not mentors.exists():
+            return Response({"message": "No mentors found for the given category."}, status=status.HTTP_404_NOT_FOUND)
         
-        # Get all mentors linked to this category
-        mentors = category.mentors.all()
-
+        
         # Serialize the mentor data
         mentor_data = [
             {
@@ -94,7 +94,7 @@ def filter_mentors_by_category(request, category_id):
             }
             for mentor in mentors
         ]
-
         return JsonResponse({"mentors": mentor_data}, safe=False)
-    except MentorCategory.DoesNotExist:
-        return JsonResponse({"error": "Invalid category_id"}, status=404)
+    
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
