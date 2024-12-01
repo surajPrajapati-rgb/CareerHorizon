@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Set up environment variables
+      run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $ENV
+
+
     - name: Grant execute permissions
       working-directory: ./backend 
       run: chmod +x ./build.sh
