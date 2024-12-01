@@ -45,7 +45,7 @@
   cursor: pointer;
 }
 
-/* Hamburger menu */
+
 .hamburger {
   display: none; 
   font-size: 30px;
@@ -53,7 +53,7 @@
   color: white;
 }
 
-/* Media Queries for Responsive Design */
+
 @media (max-width: 768px) {
   .hamburger {
     display: block; 
@@ -85,7 +85,7 @@
   }
 }
 
-/* Small screens like phones (480px and below) */
+
 @media (max-width: 480px) {
   .navbar-links.active {
     display: flex;

@@ -1,58 +1,189 @@
+/* General Page Styling */
 .home-page {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7; /* Light gray background */
+  color: #333; /* Dark text */
+  overflow: hidden; /* Prevent scrolling of the entire page */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 20%;
+  background-color: #fff; /* White background */
+  border-right: 1px solid #ddd; /* Light gray border */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  position: fixed; /* Fix the sidebar in place */
+  height: 100%; /* Make the sidebar full height */
+  overflow: auto; /* Allow scrolling inside the sidebar if necessary */
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #000; /* Black text */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333; /* Dark text */
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #555; /* Slightly darker hover effect */
+}
+
+/* Main Content Styling */
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+  margin-left: 20%; /* Offset main content to the right */
+  overflow-y: auto; /* Allow scrolling inside the main content */
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Make sure the mentor cards take full height without scrolling */
+.main-content h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #000; /* Black heading */
+}
+
+.mentor-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-height: 80vh; /* Make mentor cards section scrollable */
+  overflow-y: auto; /* Allow scrolling if mentor cards overflow */
+}
+
+.mentor-card {
+  background-color: #fff; /* White card background */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mentor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mentor-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #000; /* Black heading */
+}
+
+.mentor-card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #666; /* Slightly muted text */
+}
+
+.mentor-card .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333; /* Dark button */
+  color: #fff; /* White text */
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.mentor-card .btn:hover {
+  background-color: #555; /* Slightly lighter hover effect */
+}
+
+/* Fixed Buttons at the Bottom (For smaller screens only) */
+.fixed-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  width: 80%;
+  max-width: 500px; /* To prevent buttons from stretching too much */
+  display: none; /* Hidden by default */
+}
+
+.btn-fixed {
+  padding: 10px 20px;
+  background-color: #333; /* Dark button */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  width: 48%; /* Making buttons a bit smaller for responsiveness */
+  text-align: center;
+}
+
+.btn-fixed:hover {
+  background-color: #555; /* Slightly lighter hover effect */
+}
+
+/* Responsiveness for Smaller Screens */
+@media (max-width: 768px) {
+  /* Hide Sidebar in Small Screens */
+  .sidebar {
+    display: none;
+  }
+
+  /* Make main content take up full width */
+  .main-content {
+    width: 100%;
     padding: 20px;
-    margin-top: 44px;
+    margin-left: 0;
   }
-  
-  .user-info {
-    background-color: #f1f1f1;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+
+  /* Mentor cards layout: 1 column on smaller screens */
+  .mentor-cards {
+    grid-template-columns: 1fr;
   }
-  
-  .goals {
-    margin-top: 20px;
+
+  /* Show fixed buttons on smaller screens */
+  .fixed-buttons {
+    display: flex; /* Make buttons visible */
   }
-  
-  .goals ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .goal-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .goal-item.low {
-    background-color: #f9f9f9;
-  }
-  
-  .goal-item.medium {
-    background-color: #ffe680;
-  }
-  
-  .goal-item.high {
-    background-color: #ff9999;
-  }
-  
-  .recommended-courses ul {
-    list-style-type: disc;
-    padding-left: 20px;
-  }
-  
-  button {
-    background-color: #3b5998;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #2e4372;
-  }
-  
+}
+
+/* Back Button Styling */
+.back-btn {
+  position: absolute; /* Absolute positioning to the top-right */
+  top: 20px;  /* Adjust the top distance */
+  right: 20px; /* Adjust the right distance */
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.back-btn:hover {
+  background-color: #555; /* Lighter background on hover */
+}
+

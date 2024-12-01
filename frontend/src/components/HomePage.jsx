@@ -1,83 +1,92 @@
-import React from 'react';
-import './HomePage.css'; // Similar to WelcomePage
+import React, { useState } from "react";
+import "./HomePage.css";
+import MentorList from "./MentorList";
 
 const HomePage = () => {
+  // State to toggle between showing the mentor list and static mentors
+  const [showStaticMentors, setShowStaticMentors] = useState(false);
+
+  // Static list of mentors
+  const mentors = [
+    {
+      id: 1,
+      name: "John Doe",
+      expertise: "Full Stack Development and Cloud Architecture",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      expertise: "Data Scientist specializing in AI and Machine Learning",
+    },
+    {
+      id: 3,
+      name: "Emily Davis",
+      expertise: "Career Coach with expertise in Tech and Startups",
+    },
+  ];
+
+  // Handle the button click to show static mentors
+  const handleShowStaticMentors = () => {
+    setShowStaticMentors(true);
+  };
+
+  // Handle the button click to show mentor list again
+  const handleShowMentorList = () => {
+    setShowStaticMentors(false);
+  };
+
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section text-center text-white bg-primary py-5">
-        <div className="container">
-          <h1 className="display-4">Welcome to Your Learning Hub</h1>
-          <p className="lead">Empowering your career journey with the best resources and mentorship.</p>
-          <div className="mt-4">
-            <a href="/courses" className="btn btn-lg btn-light mx-2">Explore Courses</a>
-            <a href="/mentors" className="btn btn-lg btn-outline-light mx-2">Find a Mentor</a>
-            <a href="/chat" className="btn btn-lg btn-outline-light mx-2">Chat</a>
-          </div>
-        </div>
-      </section>
+      {/* Sidebar */}
+      <aside className="sidebar">
+        {/* Back Button, only visible when static mentors are displayed */}
+        {showStaticMentors && (
+          <button className="back-btn" onClick={handleShowMentorList}>
+            Back
+          </button>
+        )}
+        <h2>Dashboard</h2>
+        <ul>
+          <li>
+            <a href="#" onClick={handleShowStaticMentors}>
+              Your Mentors
+            </a>
+          </li>
+          <li>
+            <a href="/chat">Chat</a>
+          </li>
+        </ul>
+      </aside>
 
-      {/* Selected Courses Section */}
-      <section className="courses-section container mt-5">
-        <h2 className="text-center mb-4">Your Selected Courses</h2>
-        <div className="row">
-          {/* Dummy course 1 */}
-          <div className="col-md-4">
-            <div className="course-card bg-light p-4 mb-4">
-              <h3>Full Stack Development</h3>
-              <p>Learn the skills to become a full stack web developer, mastering both frontend and backend technologies.</p>
-              <a href="/courses/1" className="btn btn-outline-primary">View Course</a>
-            </div>
-          </div>
-          {/* Dummy course 2 */}
-          <div className="col-md-4">
-            <div className="course-card bg-light p-4 mb-4">
-              <h3>Data Science for Beginners</h3>
-              <p>Start your journey in Data Science, learning Python, data visualization, and machine learning fundamentals.</p>
-              <a href="/courses/2" className="btn btn-outline-primary">View Course</a>
-            </div>
-          </div>
-          {/* Dummy course 3 */}
-          <div className="col-md-4">
-            <div className="course-card bg-light p-4 mb-4">
-              <h3>AI and Machine Learning</h3>
-              <p>Dive deep into artificial intelligence, neural networks, and advanced machine learning techniques.</p>
-              <a href="/courses/3" className="btn btn-outline-primary">View Course</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Main Content */}
+      <main className="main-content">
+        <h2>{showStaticMentors ? "Your Mentors" : "Available Mentors"}</h2>
 
-      {/* Selected Mentors Section */}
-      <section className="mentors-section container mt-5">
-        <h2 className="text-center mb-4">Your Selected Mentors</h2>
-        <div className="row">
-          {/* Dummy mentor 1 */}
-          <div className="col-md-4">
-            <div className="mentor-card bg-light p-4 mb-4">
-              <h3>Jane Doe</h3>
-              <p>Expert in Full Stack Development, with over 10 years of industry experience in React and Node.js.</p>
-              <a href="/mentors/1" className="btn btn-outline-primary">View Profile</a>
-            </div>
+        {/* Conditional Rendering: Show Mentor List or Static Mentors */}
+        {showStaticMentors ? (
+          <div className="mentor-cards">
+            {mentors.map((mentor) => (
+              <div className="mentor-card" key={mentor.id}>
+                <h3>{mentor.name}</h3>
+                <p>{mentor.expertise}</p>
+                <a href={`/mentors/${mentor.id}`} className="btn">
+                  View Profile
+                </a>
+              </div>
+            ))}
           </div>
-          {/* Dummy mentor 2 */}
-          <div className="col-md-4">
-            <div className="mentor-card bg-light p-4 mb-4">
-              <h3>John Smith</h3>
-              <p>Data Science professional with experience in building machine learning models and data pipelines.</p>
-              <a href="/mentors/2" className="btn btn-outline-primary">View Profile</a>
-            </div>
-          </div>
-          {/* Dummy mentor 3 */}
-          <div className="col-md-4">
-            <div className="mentor-card bg-light p-4 mb-4">
-              <h3>Mary Johnson</h3>
-              <p>AI specialist with deep knowledge of neural networks, NLP, and computer vision techniques.</p>
-              <a href="/mentors/3" className="btn btn-outline-primary">View Profile</a>
-            </div>
-          </div>
-        </div>
-      </section>
+        ) : (
+          <MentorList /> 
+        )}
+      </main>
+
+      {/* Fixed Buttons at the Bottom */}
+      <div className="fixed-buttons">
+        <a href="#your-mentors" className="btn btn-fixed" onClick={handleShowStaticMentors}>
+          Your Mentors
+        </a>
+        <a href="/chat" className="btn btn-fixed">Chat</a>
+      </div>
     </div>
   );
 };
