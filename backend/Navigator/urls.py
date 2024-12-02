@@ -29,5 +29,4 @@ urlpatterns = [
     path('user_profile/', include('ProfileSection.urls')),
     path('messaging/', include('messaging.urls')),
     path('payment/', include('payment.urls')),
-    path('api/v1/', include('notifications.urls')),
 ]

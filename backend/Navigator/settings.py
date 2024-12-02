@@ -34,7 +34,6 @@ ALLOWED_HOSTS = [
     'testserver', 
     'careerhorizon-vfpx.onrender.com',
     '127.0.0.1',
-    'localhost',
 ]
 
 SECURE_SSL_REDIRECT = True
@@ -63,7 +62,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'sslserver',
     'accounts',
     'Navigator',
     'mentorship',
@@ -76,8 +74,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'dj_rest_auth',
     'channels',
-    'pytest_django',
-    # 'notifications',
+    'pytest_django'
 ]
 
 MIDDLEWARE = [
