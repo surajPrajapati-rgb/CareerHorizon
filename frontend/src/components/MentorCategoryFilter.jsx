@@ -6,13 +6,16 @@ import './MentorCategoryFilter.css'; // Import the CSS file
 const MentorCategoryFilter = () => {
   const [categories, setCategories] = useState([]);
   const [mentors, setMentors] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(0); // Default to "All" category (0)
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0); // For scrolling categories
+
+  const categoriesPerPage = 8; // Show 3 categories at a time
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get('https://careerhorizon-vfpx.onrender.com/api/categories/');
-        
+
         // Add 'All' category to the beginning of the list
         const allCategory = { mentor_category_id: 0, category_name: 'All' };
 
@@ -26,6 +29,9 @@ const MentorCategoryFilter = () => {
         ];
 
         setCategories(uniqueCategories);
+
+        // Fetch mentors for the "All" category by default
+        fetchMentorsByCategory(0); // 0 represents the "All" category
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -52,26 +58,43 @@ const MentorCategoryFilter = () => {
     }
   };
 
+  const handleScrollLeft = () => {
+    setCurrentCategoryIndex(prevIndex => Math.max(prevIndex - categoriesPerPage, 0));
+  };
+
+  const handleScrollRight = () => {
+    const maxIndex = categories.length - categoriesPerPage;
+    setCurrentCategoryIndex(prevIndex => Math.min(prevIndex + categoriesPerPage, maxIndex));
+  };
+
+  const visibleCategories = categories.slice(currentCategoryIndex, currentCategoryIndex + categoriesPerPage);
+
   return (
     <div className="container">
       <h1>Mentor Categories</h1>
-      <div className="flex">
-        {categories.map((category) => (
-          <button
-            key={category.mentor_category_id}
-            onClick={() => fetchMentorsByCategory(category.mentor_category_id)}
-            className={`${
-              selectedCategory === category.mentor_category_id
-                ? 'bg-blue-600'
-                : 'bg-gray-200'
-            }`}
-          >
-            {category.category_name}
-          </button>
-        ))}
+      <div className="category-scroll-container">
+        <button className="scroll-button" onClick={handleScrollLeft} disabled={currentCategoryIndex === 0}>
+          &lt;
+        </button>
+        <div className="category-buttons">
+          {visibleCategories.map((category) => (
+            <button
+              key={category.mentor_category_id}
+              onClick={() => fetchMentorsByCategory(category.mentor_category_id)}
+              className={`category-button ${
+                selectedCategory === category.mentor_category_id ? 'bg-blue-600' : 'bg-gray-200'
+              }`}
+            >
+              {category.category_name}
+            </button>
+          ))}
+        </div>
+        <button className="scroll-button" onClick={handleScrollRight} disabled={currentCategoryIndex + categoriesPerPage >= categories.length}>
+          &gt;
+        </button>
       </div>
 
-      {mentors.length  > 0 ? (
+      {mentors.length > 0 ? (
         <div className="grid">
           {mentors.map((mentor) => (
             <MentorCard key={mentor.mentor_id} mentor={mentor} />
