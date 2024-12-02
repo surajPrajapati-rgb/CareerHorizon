@@ -17,7 +17,9 @@ import ChatPage from './components/messaging/ChatPage';
 import { UserProvider } from './context/UserContext';
 import UserProfileForm from './components/UserProfileForm';
 import UserProfile from './components/UserProfile';
-
+import MentorCategoryFilter from './components/MentorCategoryFilter';
+import NotificationComponent from './components/notifications/NotificationComponent';
+import SendNotification from './components/notifications/SendNotification';
 
 function App() {
   return (
@@ -44,6 +46,9 @@ function App() {
                 <Route path="edit_profile/" element={<UserProfileForm />} />
                 <Route path="mentors/:mentorId" element={<MentorProfile />} />
                 <Route path="/chat" element={<ChatPage />} />
+                <Route path="/notification" element={<NotificationComponent />} />
+                <Route path="/send-notification" element={<SendNotification />} />
+                {/* <Route path="/chat/:username" element={<ChatPage />} /> */}
               </Routes>
             </ProtectedRoute>
           } 
