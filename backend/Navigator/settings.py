@@ -47,8 +47,8 @@ WSGI_APPLICATION = 'Navigator.wsgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        # 'BACKEND': 'channels.layers.InMemoryChannelLayer',
         'CONFIG': {
             'hosts': [('127.0.0.1', 6379)],
         },
@@ -63,7 +63,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'daphne',
     # 'sslserver',
     'accounts',
     'Navigator',
@@ -78,7 +77,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'channels',
     'pytest_django',
-    'notifications',
+    # 'notifications',
 ]
 
 MIDDLEWARE = [
