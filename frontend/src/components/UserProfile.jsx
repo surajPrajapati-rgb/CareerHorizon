@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const UserProfile = () => {
@@ -7,6 +8,7 @@ const UserProfile = () => {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove the token from localStorage
     navigate('/login'); // Redirect to the login page

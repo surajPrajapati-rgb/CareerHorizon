@@ -2,58 +2,49 @@ import React, { useState } from 'react';
 import './HomePage.css';
 import svg from '../assets/chat-svg.svg';
 import MentorCategoryFilter from './MentorCategoryFilter';
-import ChatPage from './messaging/ChatPage';
 import UserProfile from './UserProfile';
 import profile from '../assets/profile.svg';
 import mentor from '../assets/mentor-icon.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const [viewMentors, setViewMentors] = useState(false); // State for mentors
-  const [viewChat, setViewChat] = useState(false); // State for chat
   const [viewProfile, setViewProfile] = useState(false); // State for profile
   const [currentSection, setCurrentSection] = useState(""); // State to track the current section
+  const navigate = useNavigate(); // React Router's navigation hook
 
   // Handle the "Your Mentors" click
   const handleMentorClick = () => {
     setViewMentors(true);
-    setViewChat(false);
     setViewProfile(false);
     setCurrentSection("Your Mentors");
   };
 
-  // Handle the "Chat" click
+  // Handle the "Chat" click (redirects to /chat)
   const handleChatClick = () => {
-    setViewChat(true);
-    setViewMentors(false);
-    setViewProfile(false);
-    setCurrentSection("Chat");
+    navigate('/chat'); // Redirect to /chat
   };
 
   // Handle the "Your Profile" click
   const handleProfileClick = () => {
     setViewProfile(true);
     setViewMentors(false);
-    setViewChat(false);
     setCurrentSection("Your Profile");
   };
 
   // Handle the "Back" button click
   const handleBackClick = () => {
     setViewMentors(false);
-    setViewChat(false);
     setViewProfile(false);
     setCurrentSection(""); // Reset section name
   };
-
-  
 
   return (
     <>
       <div className="sidebar">
         <ul>
           {/* Show links for Chat, Mentors, and Profile if no section is selected */}
-          {!viewChat && !viewMentors && !viewProfile && (
+          {!viewMentors && !viewProfile && (
             <>
               <li style={{ marginLeft: '10px' }} onClick={handleChatClick}>
                 <a style={{ cursor: 'pointer' }}>
@@ -79,7 +70,7 @@ const HomePage = () => {
           )}
 
           {/* Show back button and section name when any section is selected */}
-          {(viewChat || viewMentors || viewProfile) && (
+          {(viewMentors || viewProfile) && (
             <li style={{ marginLeft: '10px', top: '10px', right: '10px' }}>
               <button onClick={handleBackClick} className="back-btn">
                 ←
@@ -94,7 +85,6 @@ const HomePage = () => {
 
       <div className="content-bar">
         {/* Conditionally render content based on selected view */}
-        {viewChat && <ChatPage />} {/* Display ChatPage for chat */}
 
         {viewMentors && (
           <div className="mentor-cards">
@@ -119,7 +109,7 @@ const HomePage = () => {
         {viewProfile && <UserProfile />}
 
         {/* Default Mentor Category Filter when no section is selected */}
-        {!viewChat && !viewMentors && !viewProfile && <MentorCategoryFilter />}
+        {!viewMentors && !viewProfile && <MentorCategoryFilter />}
       </div>
     </>
   );
