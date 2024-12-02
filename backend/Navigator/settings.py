@@ -37,9 +37,9 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 # Channels Configuration
 ASGI_APPLICATION = 'Navigator.asgi.application'

@@ -11,7 +11,7 @@ const MentorCategoryFilter = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/categories/');
+        const response = await axios.get('https://careerhorizon-vfpx.onrender.com/api/categories/');
         
         // Add 'All' category to the beginning of the list
         const allCategory = { mentor_category_id: 0, category_name: 'All' };
@@ -36,11 +36,11 @@ const MentorCategoryFilter = () => {
 
   const fetchMentorsByCategory = async (categoryId) => {
     try {
-      let apiUrl = 'http://127.0.0.1:8000/api/all/'; // Default API endpoint to fetch all mentors
+      let apiUrl = 'https://careerhorizon-vfpx.onrender.com/api/all/'; // Default API endpoint to fetch all mentors
 
       // If a category other than "All" is selected, fetch mentors by category
       if (categoryId !== 0) {
-        apiUrl = `http://127.0.0.1:8000/api/filter_mentors/${categoryId}/`;
+        apiUrl = `https://careerhorizon-vfpx.onrender.com/api/filter_mentors/${categoryId}/`;
       }
 
       const response = await axios.get(apiUrl);
