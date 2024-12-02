@@ -48,7 +48,7 @@ const SendNotification = () => {
     }
 
     try {
-      const response = await fetch('https://careerhorizon-vfpx.onrender.com/api/v2/notifications/', {
+      const response = await fetch('https://careerhorizon-vfpx.onrender.com/api/v1/notifications/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
