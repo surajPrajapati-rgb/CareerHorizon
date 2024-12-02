@@ -1,52 +1,58 @@
+/* Assuming your navbar has a fixed height of 60px (adjust this based on your actual navbar height) */
 .chatPageContainer {
-    display: flex;
-    margin-top: 80px;
-    height: 100vh;
-    
-  }
-  
-  .userList {
-    width: 25%;
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
-  .userList h2 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  .userList ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .userList li {
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    background-color: #34495e;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .userList li:hover {
-    background-color: #1abc9c;
-  }
-  
-  .userList .activeUser {
-    background-color: #1abc9c;
-    color: #2c3e50;
-  }
-  
-  .chatContent {
-    flex: 1;
-    padding: 20px;
-    background-color: #f4f4f9;
-    overflow-y: auto;
-  }
-  
+  display: flex;
+  height: calc(100vh - 65px); /* Subtract navbar height */
+  overflow: hidden; /* Prevent scrolling */
+  margin-top: 0px; /* Add top margin to push the content below the navbar */
+}
+
+
+
+.userList {
+  width: 25%;
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #ccc; /* Light gray border to separate */
+}
+
+.userList h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  text-align: center;
+  color: #000; /* Black text */
+}
+
+.userList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.userList li {
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #d3d3d3; /* Light gray background */
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  color: #000; /* Black text */
+}
+
+.userList li:hover {
+  background-color: #b0b0b0; /* Slightly darker gray for hover */
+}
+
+.userList .activeUser {
+  background-color: #000; /* Black background for active user */
+  color: #fff; /* White text */
+}
+
+.chatContent {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5; /* Light gray background */
+  overflow-y: auto;
+  color: #000; /* Black text */
+}

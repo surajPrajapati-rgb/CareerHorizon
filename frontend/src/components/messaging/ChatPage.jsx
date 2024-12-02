@@ -3,11 +3,13 @@ import { UserContext } from '../../context/UserContext';
 import ChatBox from './ChatBox';
 import axios from 'axios';
 import styles from './ChatPage.module.css';
+import  { useNavigate } from 'react-router-dom';
 
 const ChatPage = () => {
   const { user } = useContext(UserContext); 
   const [chatUsers, setChatUsers] = useState([]); 
   const [selectedUser, setSelectedUser] = useState(null); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchChatUsers = async () => {
@@ -37,12 +39,55 @@ const ChatPage = () => {
   const handleUserSelection = (username) => {
     setSelectedUser(username);
   };
+  const handleBackClick = () => {
+    navigate(-1); // Navigate back to the previous page
+  };
 
   return (
     <div className={styles.chatPageContainer}>
       {/* Sidebar for user selection */}
       <div className={styles.userList}>
-        <h2>Chats</h2>
+      <div 
+  style={{
+    display: 'flex', 
+    gap: '10px', 
+    margin: '10px', 
+    alignItems: 'center',  // Ensures that items are aligned vertically in the center
+  }}
+>
+  <span>
+    <button 
+      onClick={handleBackClick} 
+      style={{
+        padding: '5px 10px',  // Added some padding to make the button look better
+        fontSize: '16px', 
+        backgroundColor: 'black', 
+        color: 'white', 
+        border: 'none', 
+        borderRadius: '5px', 
+        cursor: 'pointer', 
+        transition: 'background-color 0.3s ease',
+      }}
+    >
+      Back
+    </button>
+  </span>
+  
+  <h2 
+    style={{
+      fontSize: '20px', 
+      fontWeight: 'bold', 
+      color: 'black', 
+      textAlign: 'center', 
+      margin: '0',  // Removed margin to make it align properly with the button
+      fontFamily: 'Arial, sans-serif',
+      flex: 1, // Takes up remaining space and pushes the content to the center
+    }}
+  >
+    Chat
+  </h2>
+</div>
+
         <ul>
           {chatUsers.map((chatUser) => (
             <li
