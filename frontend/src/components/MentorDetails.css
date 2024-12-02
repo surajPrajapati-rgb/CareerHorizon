@@ -1,0 +1,93 @@
+.mentor-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .mentor-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .mentor-profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .mentor-info h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .mentor-info p {
+    margin: 5px 0;
+    color: gray;
+  }
+  
+  .mentor-tabs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .mentor-tabs button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .mentor-tabs .active-tab {
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+  }
+  
+  .mentor-content .skills-ratings div {
+    margin-bottom: 10px;
+  }
+  
+  .mentor-content progress {
+    width: 100%;
+  }
+  
+  .real-experiences {
+    margin-top: 20px;
+  }
+  
+  .review-tags {
+    margin-top: 10px;
+  }
+  
+  .tag {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: white;
+  }
+  
+  .not-communicator {
+    background-color: #ff6666;
+  }
+  
+  .not-motivational {
+    background-color: #ff9900;
+  }
+  
+  .bad-problem-solver {
+    background-color: #66b3ff;
+  }
+  
+  .not-competent {
+    background-color: #999999;
+  }
+  
+  .positive {
+    background-color: #66cc66;
+  }
+  

@@ -16,6 +16,7 @@ import UserProfile from './components/UserProfile';
 import MentorCategoryFilter from './components/MentorCategoryFilter';
 import NotificationComponent from './components/notifications/NotificationComponent';
 import SendNotification from './components/notifications/SendNotification';
+import MentorDetail from './components/MentorDetails';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/chat" element={<ChatPage />} />
                 <Route path="/notification" element={<NotificationComponent />} />
                 <Route path="/send-notification" element={<SendNotification />} />
+                <Route path="/mentor/:mentor_id" element={<MentorDetail/>} /> {/* Individual mentor page */}
                 {/* <Route path="/chat/:username" element={<ChatPage />} /> */}
               </Routes>
             </ProtectedRoute>
