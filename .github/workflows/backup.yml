@@ -1,0 +1,62 @@
+name: Backup Database
+
+on:
+  schedule:
+    # Runs the backup every day at midnight UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up environment variables
+        working-directory: ./backend
+        run: |
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+
+      - name: Install PostgreSQL client
+        working-directory: ./backend
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+
+      - name: Backup PostgreSQL database
+        working-directory: ./backend
+        env:
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+        run: |
+          TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+          BACKUP_FILE="$DB_NAME-$TIMESTAMP.sql"
+
+          # Export database password
+          export PGPASSWORD=$DB_PASSWORD
+
+          # Run pg_dump
+          pg_dump -h $DB_HOST -p $DB_PORT -U $DB_USER $DB_NAME > $BACKUP_FILE
+          echo "Backup created: $BACKUP_FILE"
+
+      - name: Upload backup as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: database-backup
+          path: $DB_NAME-*.sql
+          retention-days: 30
+          
+      - name: Verify backup
+        run: |
+          if [ ! -f $BACKUP_FILE ]; then
+            echo "Backup file not found!"
+            exit 1
+          fi
+          echo "Backup verified."
