@@ -48,23 +48,24 @@ const SendNotification = () => {
     }
 
     try {
-      const response = await fetch('https://careerhorizon-vfpx.onrender.com/api/v1/notifications/', {
+      // const response = await fetch('https://careerhorizon-vfpx.onrender.com/api/v1/notifications/', {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/notifications/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ title, message }),
       });
-
-      if (response.ok) {
-        const data = await response.json();
-        setResponseMessage(`Notification sent! ID: ${data.id}`);
-        setTitle('');
-        setMessage('');
-      } else {
-        const errorData = await response.json();
-        setError(`Error: ${JSON.stringify(errorData)}`);
+    
+      if (!response.ok) {
+        const errorText = await response.text(); // Fallback to text if not JSON
+        throw new Error(`Error: ${errorText}`);
       }
+    
+      const data = await response.json();
+      setResponseMessage(`Notification sent! ID: ${data.id}`);
+      setTitle('');
+      setMessage('');
     } catch (err) {
       setError(`Error: ${err.message}`);
     }
