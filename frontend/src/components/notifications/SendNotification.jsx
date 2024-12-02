@@ -11,7 +11,7 @@ const SendNotification = () => {
   useEffect(() => {
     const fetchUserRole = async () => {
       try {
-        const response = await fetch('https://careerhorizon-vfpx.onrender.com/accounts/current-user/');
+        const response = await fetch('https://careerhorizon-vfpx.onrender.com/accounts/current_user/');
         if (response.ok) {
           const data = await response.json();
           setIsAdmin(data.is_admin); // Backend returns 'is_admin'.
