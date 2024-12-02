@@ -5,4 +5,8 @@ class YourAppNameConfig(AppConfig):
     name = 'ProfileSection'
 
     def ready(self):
-        import ProfileSection.signals
+        import importlib
+        try:
+            importlib.import_module('ProfileSection.signals')
+        except ImportError as e:
+            print(f"Error importing signals: {e}")
