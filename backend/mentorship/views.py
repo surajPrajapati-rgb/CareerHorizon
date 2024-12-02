@@ -161,4 +161,44 @@ def allMentor(request):
         
     # Return the response with the data
     return Response(response_data)
+
+
+@api_view(['GET'])
+def get_mentor_by_id(request, mentor_id):
+    try:
+        # Fetch the mentor object based on mentor_id
+        mentor = Mentor.objects.filter(mentor_id=mentor_id).first()
+
+        # If no mentor is found, return a 404 response
+        if not mentor:
+            return Response(
+                {"error": True, "message": "Mentor not found."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        # Serialize the mentor data
+        mentor_data = {
+            "mentor_id": mentor.mentor_id,
+            "mentor_name": mentor.mentor_name,
+            "mentor_image_url": mentor.mentor_image_url,
+            "bio": mentor.bio,
+            "experience_years": mentor.experience_years,
+            "hourly_rate": str(mentor.hourly_rate),
+            "linkedin_url": mentor.linkedin_url,
+            "education": mentor.education,
+        }
+
+        # Return the response with the mentor data
+        return Response(
+            {"error": False, "message": "Mentor details fetched successfully.", "mentor": mentor_data},
+            status=status.HTTP_200_OK,
+        )
+
+    except Exception as e:
+        # Handle any unexpected errors
+        return Response(
+            {"error": True, "message": "An error occurred.", "details": str(e)},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        )
+
     
