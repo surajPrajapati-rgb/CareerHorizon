@@ -23,6 +23,7 @@ import UserProfileForm from './components/UserProfileForm';
 import UserProfile from './components/UserProfile';
 import MentorCategoryFilter from './components/MentorCategoryFilter';
 import NotificationComponent from './components/notifications/NotificationComponent';
+import NotificationComponent from './components/notifications/SendNotification';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/course/:id" element={<CourseDetails/>} />
                 <Route path="/chat" element={<ChatPage />} />
                 <Route path="/notification" element={<NotificationComponent />} />
+                <Route path="/send-notification" element={<NotificationComponent />} />
                 {/* <Route path="/chat/:username" element={<ChatPage />} /> */}
               </Routes>
             </ProtectedRoute>

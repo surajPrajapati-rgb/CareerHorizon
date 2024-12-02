@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login as django_login, logout as d
 from django.http import JsonResponse
 from django.contrib.auth.hashers import make_password
 from rest_framework.authtoken.models import Token
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
 @api_view(['POST'])
@@ -99,3 +101,14 @@ def signup_view(request):
     token, _ = Token.objects.get_or_create(user=user)
 
     return Response({'token': token.key}, status=status.HTTP_201_CREATED)
+
+
+class CurrentUserView(APIView):
+    def get(self, request):
+        user = request.user
+        return Response({
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'is_admin': user.is_staff,  
+        })
