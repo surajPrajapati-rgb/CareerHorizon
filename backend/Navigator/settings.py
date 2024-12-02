@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'sslserver',
+    'sslserver',
     'accounts',
     'Navigator',
     'mentorship',
@@ -77,7 +77,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'channels',
     'pytest_django',
-    # 'notifications',
+    'notifications',
 ]
 
 MIDDLEWARE = [
