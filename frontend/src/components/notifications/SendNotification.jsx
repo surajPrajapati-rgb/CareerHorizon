@@ -16,8 +16,8 @@ const SendNotification = () => {
     const fetchUserDetails = async () => {
       try {
         const response = await axios.get(
-          `https://careerhorizon-vfpx.onrender.com/accounts/current_user/`,
-          { params: { sender: user.email } } // Use user.email
+            `https://careerhorizon-vfpx.onrender.com/accounts/current_user/`,
+            { params: { sender: user.email } }
         );
 
         console.log('User details:', response.data);
