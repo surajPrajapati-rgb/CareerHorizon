@@ -4,14 +4,10 @@ import WelcomePage from './components/WelcomePage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import HomePage from './components/HomePage';
-// import ProfilePage from './components/ProfilePage';
 import Logout from './components/Logout';
 import NavBar from './components/NavBar';
-import MentorPage from './components/MentorPage';
 import MentorProfile from './components/MentorProfile';
 import ProtectedRoute from './components/ProtectedRoute'; // Import your ProtectedRoute component
-import BackendDeveloper from './components/BackendDeveloper';
-import MentorList from './components/MentorList';
 import ChatBox from './components/messaging/ChatBox';
 import ChatPage from './components/messaging/ChatPage';
 import { UserProvider } from './context/UserContext';
@@ -31,7 +27,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/logout" element={<Logout />} />
-        
         
         {/* Protected Routes with NavBar */}
         <Route 
@@ -58,5 +53,4 @@ function App() {
     </UserProvider>
   );
 }
-
 export default App;
