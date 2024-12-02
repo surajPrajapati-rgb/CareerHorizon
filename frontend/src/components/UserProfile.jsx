@@ -7,6 +7,11 @@ const UserProfile = () => {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove the token from localStorage
+    navigate('/login'); // Redirect to the login page
+  };
+  
 
   useEffect(() => {
     if (!user?.email) {
@@ -62,6 +67,12 @@ const UserProfile = () => {
       ) : (
         <p>No profile data available</p>
       )}
+      <div>
+                  <button onClick={handleLogout} className="btn btn-danger align-items-center justify-content-center">
+                    Logout
+                  </button>
+
+                </div>
     </div>
   );
 };

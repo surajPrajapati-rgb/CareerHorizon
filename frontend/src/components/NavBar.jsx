@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './NavBar.css'; 
+import toggleon from '../assets/toggleon.svg';
+import toggleoff from '../assets/toggleoff.svg';
+import notification from '../assets/notification.svg';
+
+// Icons from svgrepo.com
+import './NavBar.css';
 import LogoutButton from './Logout';
 
 function NavBar() {
@@ -12,10 +17,7 @@ function NavBar() {
   };
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove the token from localStorage
-    navigate('/login'); // Redirect to the login page
-  };
+
 
   return (
     <nav className="nav">
@@ -30,13 +32,17 @@ function NavBar() {
 
       {/* Links visible depending on screen size or when menu is open */}
       <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+        <Link to="" className="toggle">
+          <img src={toggleoff} alt="toggleoff" width="35" height="35" />
+        </Link>
+        <Link to="/notification" className="notification-icon">
+          <img src={notification} alt="notification" width="30" height="30" />
+        </Link>
+
         <Link to="/home" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/mentors" onClick={() => setMenuOpen(false)}>Mentor</Link>
         <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-        <button onClick={handleLogout} className="btn btn-danger">
-      Logout
-    </button>
+
       </div>
 
       <div className="navbar-profile">

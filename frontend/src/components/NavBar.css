@@ -11,6 +11,13 @@
   z-index: 1000;            
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+.notification-icon img {
+  filter: invert(1); 
+}
+.toggle img {
+  filter: invert(1); 
+}
+
 
 .navbar-logo {
   margin-left: 20px;

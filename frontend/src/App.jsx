@@ -9,12 +9,8 @@ import Logout from './components/Logout';
 import NavBar from './components/NavBar';
 import MentorPage from './components/MentorPage';
 import MentorProfile from './components/MentorProfile';
-import CourseList from './components/CourseList';
 import ProtectedRoute from './components/ProtectedRoute'; // Import your ProtectedRoute component
-import coursesData from './data/courses.json';
-import CareerExplorer from './components/CareerExplorer';
 import BackendDeveloper from './components/BackendDeveloper';
-import CourseDetails from './components/CourseDetails';
 import MentorList from './components/MentorList';
 import ChatBox from './components/messaging/ChatBox';
 import ChatPage from './components/messaging/ChatPage';
@@ -43,17 +39,12 @@ function App() {
           element={
             <ProtectedRoute>
               <NavBar />
+              <div style={{height: '65px'}}></div>
               <Routes>
                 <Route path="home" element={<HomePage />} />
-                {/* <Route path="profile/:user_id" element={<ProfilePage />} /> */}
                 <Route path="get_profile/" element={<UserProfile />} />
                 <Route path="edit_profile/" element={<UserProfileForm />} />
-                <Route path="mentors" element={<MentorCategoryFilter/>} />
                 <Route path="mentors/:mentorId" element={<MentorProfile />} />
-                <Route path="explore/" element={<CareerExplorer />} />
-                <Route path="career-path/" element={<BackendDeveloper />} />
-                <Route path="courses" element={<CourseList courses={coursesData} />} />
-                <Route path="/course/:id" element={<CourseDetails/>} />
                 <Route path="/chat" element={<ChatPage />} />
                 <Route path="/notification" element={<NotificationComponent />} />
                 <Route path="/send-notification" element={<SendNotification />} />
