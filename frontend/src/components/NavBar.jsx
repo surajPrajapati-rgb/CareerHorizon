@@ -44,16 +44,6 @@ function NavBar() {
         <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
 
       </div>
-
-      <div className="navbar-profile">
-      <Link to="/notification/">
-          <img src="/public/notification.png" alt="Profile" className="profile-icon" />
-        </Link>
-        <Link to="/get_profile/">
-          <img src="/public/image.png" alt="Profile" className="profile-icon" />
-        </Link>
-        
-      </div>
     </nav>
   );
 }
