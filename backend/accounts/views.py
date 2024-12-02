@@ -102,23 +102,20 @@ def signup_view(request):
 
     return Response({'token': token.key}, status=status.HTTP_201_CREATED)
 
+@api_view(['GET'])
+def current_user_view(request):
+    sender_email = request.query_params.get('sender')
 
-class CurrentUserView(APIView):
-    def get(self, request, user):
-        
-        sender_email = request.query_params.get('sender')
+    if not sender_email:
+        return Response({'error': 'Sender email is required.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        if not sender_email:
-            return Response({'error': 'Sender email is required.'}, status=status.HTTP_400_BAD_REQUEST)
-
-        try:
-            
-            user = User.objects.get(email=sender_email)
-            return Response({
-                'id': user.id,
-                'username': user.username,
-                'email': user.email,
-                'is_admin': user.is_staff, 
-            })
-        except User.DoesNotExist:
-            return Response({'error': 'User with this email does not exist.'}, status=status.HTTP_404_NOT_FOUND)
+    try:
+        user = User.objects.get(email=sender_email)
+        return Response({
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'is_admin': user.is_staff,  # Indicate if the user is an admin
+        })
+    except User.DoesNotExist:
+        return Response({'error': 'User with this email does not exist.'}, status=status.HTTP_404_NOT_FOUND)
