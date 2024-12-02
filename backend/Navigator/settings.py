@@ -36,9 +36,9 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 # Channels Configuration
 ASGI_APPLICATION = 'Navigator.asgi.application'
