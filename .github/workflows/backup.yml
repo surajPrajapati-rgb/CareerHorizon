@@ -10,6 +10,21 @@ jobs:
   backup:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.DB_NAME }}
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -20,21 +35,19 @@ jobs:
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
-          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
-          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+          echo "DB_HOST=localhost" >> .env
+          echo "DB_PORT=5432" >> .env
 
       - name: Install PostgreSQL client
-        working-directory: ./backend
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
 
       - name: Backup PostgreSQL database
-        working-directory: ./backend
         env:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_HOST: localhost
+          DB_PORT: 5432
         run: |
           TIMESTAMP=$(date +"%Y%m%d%H%M%S")
           BACKUP_FILE="$DB_NAME-$TIMESTAMP.sql"
@@ -52,10 +65,10 @@ jobs:
           name: database-backup
           path: $DB_NAME-*.sql
           retention-days: 30
-          
+
       - name: Verify backup
         run: |
-          if [ ! -f $BACKUP_FILE ]; then
+          if [ ! -f $DB_NAME-*.sql ]; then
             echo "Backup file not found!"
             exit 1
           fi
