@@ -9,6 +9,7 @@ class ProfileView(APIView):
     parser_classes = [MultiPartParser, FormParser]
     
     def get(self, request, *args, **kwargs):
+        print("Received GET request to /profile/")
         email = request.query_params.get('email')
         print(f"Received email: {email}")
         if not email:
