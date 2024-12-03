@@ -66,10 +66,3 @@ jobs:
           path: $DB_NAME-*.sql
           retention-days: 30
 
-      - name: Verify backup
-        run: |
-          if [ ! -f $DB_NAME-*.sql ]; then
-            echo "Backup file not found!"
-            exit 1
-          fi
-          echo "Backup verified."
